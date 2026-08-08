@@ -1,23 +1,43 @@
 # Current Learning State
 
 ## Current Phase
-
 Phase 1 — Python & FastAPI Backend Foundation
 
 ## Current Topic
-
-Not started.
+Session 3 — Functions & OOP
 
 ## Current Status
-
-NOT_STARTED
+PRACTICING
 
 ## Current Goal
-
 Build the Python and FastAPI foundation required for production AI engineering.
 
-## Existing Strengths
+## Completed So Far
+- Session 1 — Python Fundamentals
+- Session 2 — Python Data Model / Core Collections
+- Session 3 Functions & Modules portion
 
+## Current Session Result
+Implemented and reviewed a multi-module Python exercise using `models.py`, `math_service.py`, `user_service.py`, and `main.py`.
+
+Practiced:
+- Functions and typed parameters/returns
+- Default parameters
+- Keyword arguments
+- Tuple unpacking
+- Function/local scope
+- Modules and imports
+- Docstrings
+- `if __name__ == "__main__"`
+- Basic exception handling
+- Separation of concerns
+
+Pydantic `BaseModel` was used practically, but Pydantic is not yet a completed topic.
+
+## Current Confidence
+8.5/10 for the Functions & Modules portion.
+
+## Existing Strengths
 - Kotlin and Java
 - Android and Jetpack Compose
 - Kotlin Multiplatform / Compose Multiplatform
@@ -32,11 +52,9 @@ Build the Python and FastAPI foundation required for production AI engineering.
 - System design
 
 ## Important Learning Context
-
 Do not restart general software engineering education. Map new Python and AI concepts to existing Kotlin/Java knowledge when useful.
 
 ## Current Weaknesses to Validate
-
 - Python-specific idioms
 - Python typing and runtime validation
 - Python async model and event loop
@@ -45,16 +63,11 @@ Do not restart general software engineering education. Map new Python and AI con
 - SQLAlchemy 2.x
 - Python testing ecosystem
 
-These are hypotheses and should be updated as learning progresses.
-
-## Next Recommended Session
-
-Session 01 — Python Fundamentals required for Backend and AI Engineering.
+## Next Recommended Step
+Continue Session 3 with OOP fundamentals: classes, objects, `__init__`, instance attributes, methods, `classmethod`, `staticmethod`, composition, inheritance, Abstract Base Classes, and Protocol.
 
 ## Last Session
-
-None.
+Session 3 — Functions & Modules
 
 ## Next Action
-
-Start Session 01.
+Continue Session 3 with OOP rather than starting a new topic.
