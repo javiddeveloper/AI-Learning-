@@ -29,9 +29,19 @@ Completed initial fundamentals required for backend and AI engineering.
 - Keep domain responsibilities separated across modules instead of putting all logic in `main.py`.
 - Explicit imports are preferred over wildcard imports.
 
-### Type Hints
+### Type Hints & Pyright
 
-Not yet formally covered as a dedicated topic. Type hints have been used throughout exercises.
+- Type annotations describe expected types but do not by themselves provide runtime validation.
+- `str | None` expresses a value that may be a string or `None` and is the modern Python syntax for this common nullable type.
+- Generic collections use syntax such as `list[str]` and `dict[int, str]`.
+- `TypeVar` allows a generic function to preserve the relationship between input and output types, e.g. `def first(items: list[T]) -> T`.
+- `Literal` restricts a value to a fixed set of allowed values and is useful for bounded states such as payment status.
+- `TypedDict` describes the expected keys and value types of dictionary-shaped data for static type checking.
+- `Callable[[int, int], int]` describes a function that accepts two integers and returns an integer.
+- `Protocol` defines a structural contract. A class can satisfy the protocol by providing the required members without explicitly inheriting from it.
+- Pyright performs static type checking during development; it does not replace runtime validation.
+- Pydantic is used for runtime validation at application boundaries, while Pyright checks the source code statically. They are complementary.
+- Prefer modern built-in generic syntax such as `list[T]` over legacy `List[T]` in new Python code.
 
 ## Async Python
 
@@ -60,6 +70,7 @@ Not started.
 - Separate reusable business logic from the application entry point.
 - Handle expected errors explicitly, e.g. rejecting division by zero.
 - Avoid unnecessary abstractions; introduce modules when responsibilities become distinct.
+- Static typing improves development-time safety but should not be confused with runtime input validation.
 
 ## AI Engineering
 
@@ -100,7 +111,8 @@ To be documented from practical sessions.
 - Using `list(set(items))` when preserving the original order matters.
 - Putting reusable functions inside `main()` when they belong to a separate module.
 - Using wildcard imports such as `from module import *`.
+- Assuming Python type annotations enforce runtime validation; use appropriate runtime validation such as Pydantic at external boundaries.
 
 ## Next Learning Target
 
-Continue Session 3 with Python OOP, then proceed to the dedicated Type Hints & Pyright topic according to the roadmap.
+Session 5 — Dataclasses, Pydantic & ORM Models.
