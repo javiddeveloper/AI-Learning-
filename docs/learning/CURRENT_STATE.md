@@ -4,10 +4,10 @@
 Phase 1 — Python & FastAPI Backend Foundation
 
 ## Current Topic
-Session 3 — Functions & OOP
+Session 5 — Dataclasses, Pydantic & ORM Models
 
 ## Current Status
-PRACTICING
+NOT_STARTED
 
 ## Current Goal
 Build the Python and FastAPI foundation required for production AI engineering.
@@ -15,27 +15,29 @@ Build the Python and FastAPI foundation required for production AI engineering.
 ## Completed So Far
 - Session 1 — Python Fundamentals
 - Session 2 — Python Data Model / Core Collections
-- Session 3 Functions & Modules portion
+- Session 3 — Functions & Modules portion
+- Session 4 — Type Hints & Pyright
 
 ## Current Session Result
-Implemented and reviewed a multi-module Python exercise using `models.py`, `math_service.py`, `user_service.py`, and `main.py`.
+Session 4 was completed through a practical type-safety exercise.
 
 Practiced:
-- Functions and typed parameters/returns
-- Default parameters
-- Keyword arguments
-- Tuple unpacking
-- Function/local scope
-- Modules and imports
-- Docstrings
-- `if __name__ == "__main__"`
-- Basic exception handling
-- Separation of concerns
+- Type annotations
+- `str | None` and Union concepts
+- Generic collections
+- `TypeVar`
+- `Literal`
+- `TypedDict`
+- `Callable`
+- `Protocol`
+- Structural typing
+- Static type checking vs runtime validation
+- Pyright
 
-Pydantic `BaseModel` was used practically, but Pydantic is not yet a completed topic.
+The implementation used a payment-domain example with `TypedDict`, `PaymentStatus`, a generic `first()` function, callable operations, and `PaymentProcessor` protocol implementations.
 
 ## Current Confidence
-8.5/10 for the Functions & Modules portion.
+9/10 for Type Hints & Pyright.
 
 ## Existing Strengths
 - Kotlin and Java
@@ -63,11 +65,19 @@ Do not restart general software engineering education. Map new Python and AI con
 - SQLAlchemy 2.x
 - Python testing ecosystem
 
+## Important Continuity Note
+Session 3 OOP fundamentals were not formally completed before Session 4. Session 4 nevertheless covered `Protocol` and structural typing. OOP fundamentals should be revisited if needed when they become relevant to later implementation, without restarting completed material.
+
 ## Next Recommended Step
-Continue Session 3 with OOP fundamentals: classes, objects, `__init__`, instance attributes, methods, `classmethod`, `staticmethod`, composition, inheritance, Abstract Base Classes, and Protocol.
+Session 5 — Dataclasses, Pydantic & ORM Models.
+
+Focus on the distinction between:
+- Dataclass → Python domain/data object
+- Pydantic `BaseModel` → validation and serialization boundary
+- SQLAlchemy ORM Model → database persistence model
 
 ## Last Session
-Session 3 — Functions & Modules
+Session 4 — Type Hints & Pyright
 
 ## Next Action
-Continue Session 3 with OOP rather than starting a new topic.
+Start Session 5.
