@@ -4,7 +4,7 @@
 Phase 1 — Python & FastAPI Backend Foundation
 
 ## Current Topic
-Session 5 — Dataclasses, Pydantic & ORM Models
+Session 6 — Modules, Packages & uv
 
 ## Current Status
 NOT_STARTED
@@ -17,27 +17,23 @@ Build the Python and FastAPI foundation required for production AI engineering.
 - Session 2 — Python Data Model / Core Collections
 - Session 3 — Functions & Modules portion
 - Session 4 — Type Hints & Pyright
+- Session 5 — Dataclasses, Pydantic & ORM Models
 
 ## Current Session Result
-Session 4 was completed through a practical type-safety exercise.
+Session 5 was completed through a practical payment-domain implementation using three separate representations:
+- Dataclass for business/domain logic.
+- Pydantic v2 BaseModel for API input validation and serialization.
+- SQLAlchemy 2.x ORM model for database persistence.
 
-Practiced:
-- Type annotations
-- `str | None` and Union concepts
-- Generic collections
-- `TypeVar`
-- `Literal`
-- `TypedDict`
-- `Callable`
-- `Protocol`
-- Structural typing
-- Static type checking vs runtime validation
-- Pyright
-
-The implementation used a payment-domain example with `TypedDict`, `PaymentStatus`, a generic `first()` function, callable operations, and `PaymentProcessor` protocol implementations.
+The implementation also demonstrated mapping between API, domain and persistence models and simulated persistence with an in-memory SQLite database.
 
 ## Current Confidence
-9/10 for Type Hints & Pyright.
+8.8/10 for Dataclasses, Pydantic & ORM Models.
+
+## Key Mental Model
+- Pydantic → external/API validation and serialization boundary.
+- Dataclass → application/domain data and behavior.
+- SQLAlchemy ORM → database persistence model.
 
 ## Existing Strengths
 - Kotlin and Java
@@ -58,26 +54,33 @@ Do not restart general software engineering education. Map new Python and AI con
 
 ## Current Weaknesses to Validate
 - Python-specific idioms
-- Python typing and runtime validation
 - Python async model and event loop
 - FastAPI ecosystem
-- Pydantic
-- SQLAlchemy 2.x
+- Pydantic integration with FastAPI
+- SQLAlchemy 2.x beyond model definitions
 - Python testing ecosystem
 
 ## Important Continuity Note
-Session 3 OOP fundamentals were not formally completed before Session 4. Session 4 nevertheless covered `Protocol` and structural typing. OOP fundamentals should be revisited if needed when they become relevant to later implementation, without restarting completed material.
+Session 3 OOP fundamentals were not formally completed before Session 4. Session 4 nevertheless covered Protocol and structural typing. OOP fundamentals should be revisited if needed when they become relevant to later implementation, without restarting completed material.
 
 ## Next Recommended Step
-Session 5 — Dataclasses, Pydantic & ORM Models.
+Session 6 — Modules, Packages & uv.
 
-Focus on the distinction between:
-- Dataclass → Python domain/data object
-- Pydantic `BaseModel` → validation and serialization boundary
-- SQLAlchemy ORM Model → database persistence model
+Focus on:
+- Modules
+- Packages
+- Imports
+- __init__.py
+- Absolute vs relative imports
+- Circular dependencies
+- Virtual environments
+- uv
+- pyproject.toml
+- Dependency management
+- A small production-oriented project structure
 
 ## Last Session
-Session 4 — Type Hints & Pyright
+Session 5 — Dataclasses, Pydantic & ORM Models
 
 ## Next Action
-Start Session 5.
+Start Session 6.
