@@ -11,7 +11,7 @@
 **Phase 1 — Python & FastAPI Backend Foundation**
 
 ## Current Topic
-**Session 6 — Modules, Packages & uv**
+**Session 7 — Exceptions, Context Managers, Decorators & Configuration**
 
 ## Phase 1 Progress
 | Topic | Status | Confidence | Notes |
@@ -19,9 +19,9 @@
 | Python Fundamentals | COMPLETED | 8/10 | Core fundamentals practiced. |
 | Pythonic Programming | PRACTICING | 8/10 | Core collections/data-model concepts practiced; more Pythonic constructs remain. |
 | Functions & OOP | PRACTICING | 8.5/10 | Functions, parameters, return values, default/keyword arguments, scope, modules/imports and docstrings completed. OOP remains to be formalized. |
-| Type Hints & Pyright | COMPLETED | 9/10 | Practiced annotations, str | None, generics/TypeVar, Literal, TypedDict, Callable, Protocol, structural typing, and static checking with Pyright. |
-| Dataclasses vs Pydantic vs ORM | COMPLETED | 8.8/10 | Implemented a payment-domain flow using Dataclass, Pydantic v2 and SQLAlchemy 2.x ORM models. Clearly distinguished business data, API validation/serialization, and persistence models. |
-| Modules, Packages & uv | IN_PROGRESS | 8/10 | Basic modules/imports completed; packages, uv and pyproject.toml remain. |
+| Type Hints & Pyright | COMPLETED | 9/10 | Practiced annotations, generics, Literal, TypedDict, Callable, Protocol and static checking with Pyright. |
+| Dataclasses vs Pydantic vs ORM | COMPLETED | 8.8/10 | Implemented and reviewed a payment-domain flow using Dataclass, Pydantic v2 and SQLAlchemy 2.x ORM models. |
+| Modules, Packages & uv | COMPLETED | 9/10 | Implemented a src-layout package, imports, __init__.py, dependency direction, uv, pyproject.toml and uv.lock. Compared uv with pip + requirements.txt. |
 | Exceptions, Context Managers & Decorators | PRACTICING | 7/10 | Basic exception handling practiced; full topic remains. |
 | Configuration & pydantic-settings | NOT_STARTED | - | |
 | Async Python & asyncio | NOT_STARTED | - | |
@@ -30,19 +30,19 @@
 | Pydantic with FastAPI | NOT_STARTED | - | |
 | FastAPI Dependency Injection | NOT_STARTED | - | |
 | PostgreSQL | NOT_STARTED | - | |
-| SQLAlchemy 2.x | PRACTICING | 8/10 | SQLAlchemy 2.x ORM model syntax practiced in Session 5; sessions, relationships, transactions and queries remain for Session 13. |
+| SQLAlchemy 2.x | PRACTICING | 8/10 | ORM model syntax practiced; sessions, relationships, transactions and queries remain. |
 | Alembic | NOT_STARTED | - | |
 | httpx | NOT_STARTED | - | |
 | Retry, Timeout & Resilience | NOT_STARTED | - | |
 | Authentication & Authorization | NOT_STARTED | - | |
 | Testing with pytest | NOT_STARTED | - | |
-| Ruff, Pyright & Pre-commit | IN_PROGRESS | 8/10 | Pyright was introduced and practiced in Session 4; Ruff and pre-commit remain. |
+| Ruff, Pyright & Pre-commit | IN_PROGRESS | 8/10 | Pyright practiced; Ruff and pre-commit remain. |
 | Docker & Docker Compose | NOT_STARTED | - | |
 | Production Backend Concepts | NOT_STARTED | - | |
 | AI-Ready Backend | NOT_STARTED | - | |
 
 ## Completion Rule
-A topic is not COMPLETED merely because it was discussed. It requires explanation in the learner's own words plus a practical implementation reviewed in a session.
+A topic is COMPLETED only after explanation in the learner's own words plus a practical implementation reviewed in a session.
 
 ## Session History
 ### Session 1 — Python Fundamentals
@@ -51,67 +51,36 @@ A topic is not COMPLETED merely because it was discussed. It requires explanatio
 ### Session 2 — Python Data Model / Core Collections
 **Status:** COMPLETED
 
-Practiced list, tuple, set, dict, mutable vs immutable collections, and tuple use for coordinate-style values such as (x, y) and (latitude, longitude).
-
 ### Session 3 — Functions & Modules
 **Status:** PRACTICING
 
-Implemented a multi-module exercise with models.py, math_service.py, user_service.py, and main.py.
-
-Practiced functions, type hints in signatures, default parameters, keyword arguments, tuple unpacking, scope, modules/imports, if __name__ == "__main__", docstrings, ZeroDivisionError, and separation of concerns.
-
-Pydantic BaseModel was used as early practical exposure, but Pydantic is not considered completed until Session 5.
+Implemented a multi-module exercise and practiced functions, type hints, parameters, scope, imports, entry points, docstrings, exception handling and separation of concerns.
 
 **Confidence:** 8.5/10
 
 ### Session 4 — Type Hints & Pyright
 **Status:** COMPLETED
 
-Practiced:
-- Type annotations
-- str | None and Union concepts
-- Generic collections
-- TypeVar
-- Literal
-- TypedDict
-- Callable
-- Protocol and structural typing
-- Static type checking vs runtime validation
-- Pyright configuration and type checking
-
-Implemented and reviewed a practical payment-oriented exercise containing User, PaymentStatus, a generic first() function, callable operations, and PaymentProcessor protocol implementations.
+Practiced type annotations, nullable types, generics, TypeVar, Literal, TypedDict, Callable, Protocol, structural typing and Pyright.
 
 **Confidence:** 9/10
 
 ### Session 5 — Dataclasses, Pydantic & ORM Models
 **Status:** COMPLETED
 
-Implemented and reviewed a payment-domain model flow with three distinct representations:
-- Payment as a Python dataclass for business/domain logic.
-- PaymentRequest as a Pydantic v2 BaseModel for API input validation and serialization boundaries.
-- PaymentModel as a SQLAlchemy 2.x ORM model for database persistence.
-
-Practiced:
-- Dataclass fields and __post_init__
-- Business methods on a dataclass
-- Pydantic Field
-- Runtime validation with field_validator
-- Pydantic v2 conventions
-- SQLAlchemy 2.x DeclarativeBase
-- Mapped and mapped_column
-- Enum mapping for payment status
-- Mapping between API, domain and persistence representations
-- SQLite in-memory database simulation
-- Persisting and retrieving an ORM entity
-- Decimal and Numeric for monetary values instead of float in the corrected implementation
-
-Key architectural distinction learned:
-- Pydantic → API/input-output validation boundary
-- Dataclass → application/domain data and behavior
-- SQLAlchemy ORM → database persistence model
+Implemented and reviewed a payment-domain model flow with Dataclass, Pydantic v2 and SQLAlchemy 2.x ORM models. Practiced validation, serialization, ORM mapping, SQLite persistence simulation and API/domain/persistence separation.
 
 **Confidence:** 8.8/10
 
-**Production note:** Conversion methods were kept in the exercise for clarity; in larger systems, mapping is often moved into dedicated mapper/application-layer code to keep models focused.
+### Session 6 — Modules, Packages & uv
+**Status:** COMPLETED
 
-**Next:** Session 6 — Modules, Packages & uv.
+Implemented and reviewed a production-oriented payment project using src layout. Practiced modules, packages, __init__.py, __all__, absolute/relative imports, dependency direction, circular dependency avoidance, virtual environments, uv, pyproject.toml, uv.lock, uv sync and uv run.
+
+Also compared the modern uv + pyproject.toml + uv.lock workflow with pip + requirements.txt.
+
+**Confidence:** 9/10
+
+**Production notes:** __init__.py is not strictly required for every modern Python package because namespace packages exist. __all__ mainly controls wildcard-import exports. pyproject.toml is the modern project metadata/configuration standard, while requirements.txt remains valid for some workflows. For new projects in this curriculum, uv + pyproject.toml + uv.lock is preferred.
+
+**Next:** Session 7 — Exceptions, Context Managers, Decorators & Configuration.
