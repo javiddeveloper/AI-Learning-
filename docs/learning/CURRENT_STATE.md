@@ -4,7 +4,7 @@
 Phase 1 — Python & FastAPI Backend Foundation
 
 ## Current Topic
-Session 6 — Modules, Packages & uv
+Session 7 — Exceptions, Context Managers, Decorators & Configuration
 
 ## Current Status
 NOT_STARTED
@@ -18,22 +18,21 @@ Build the Python and FastAPI foundation required for production AI engineering.
 - Session 3 — Functions & Modules portion
 - Session 4 — Type Hints & Pyright
 - Session 5 — Dataclasses, Pydantic & ORM Models
+- Session 6 — Modules, Packages & uv
 
 ## Current Session Result
-Session 5 was completed through a practical payment-domain implementation using three separate representations:
-- Dataclass for business/domain logic.
-- Pydantic v2 BaseModel for API input validation and serialization.
-- SQLAlchemy 2.x ORM model for database persistence.
-
-The implementation also demonstrated mapping between API, domain and persistence models and simulated persistence with an in-memory SQLite database.
+Session 6 was completed through a practical production-oriented payment package using src layout. The session covered modules, packages, __init__.py, __all__, absolute and relative imports, dependency direction, circular dependency avoidance, virtual environments, uv, pyproject.toml, uv.lock, uv sync and uv run. The modern uv workflow was also compared with pip + requirements.txt.
 
 ## Current Confidence
-8.8/10 for Dataclasses, Pydantic & ORM Models.
+9/10 for Modules, Packages & uv.
 
 ## Key Mental Model
-- Pydantic → external/API validation and serialization boundary.
-- Dataclass → application/domain data and behavior.
-- SQLAlchemy ORM → database persistence model.
+- Module → a Python .py file containing reusable code.
+- Package → a structured namespace containing related modules.
+- pyproject.toml → project metadata, dependency declarations and tool configuration.
+- uv.lock → resolved dependency versions for reproducible environments.
+- uv → project, environment, dependency and command workflow manager.
+- Dependency direction should remain one-way to avoid circular dependencies.
 
 ## Existing Strengths
 - Kotlin and Java
@@ -64,23 +63,21 @@ Do not restart general software engineering education. Map new Python and AI con
 Session 3 OOP fundamentals were not formally completed before Session 4. Session 4 nevertheless covered Protocol and structural typing. OOP fundamentals should be revisited if needed when they become relevant to later implementation, without restarting completed material.
 
 ## Next Recommended Step
-Session 6 — Modules, Packages & uv.
+Session 7 — Exceptions, Context Managers, Decorators & Configuration.
 
 Focus on:
-- Modules
-- Packages
-- Imports
-- __init__.py
-- Absolute vs relative imports
-- Circular dependencies
-- Virtual environments
-- uv
-- pyproject.toml
-- Dependency management
-- A small production-oriented project structure
+- Exception hierarchy and custom exceptions
+- try / except / else / finally
+- Context managers and with
+- contextlib
+- Decorators
+- functools.wraps
+- Environment configuration
+- pydantic-settings
+- Production error-handling patterns
 
 ## Last Session
-Session 5 — Dataclasses, Pydantic & ORM Models
+Session 6 — Modules, Packages & uv
 
 ## Next Action
-Start Session 6.
+Start Session 7.
