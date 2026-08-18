@@ -29,6 +29,21 @@ Completed initial fundamentals required for backend and AI engineering.
 - Keep domain responsibilities separated across modules instead of putting all logic in main.py.
 - Explicit imports are preferred over wildcard imports.
 
+### Modules, Packages & uv
+
+- A module is a Python .py file containing reusable code.
+- A package is a structured Python namespace containing related modules. Modern Python also supports namespace packages without __init__.py.
+- __init__.py can define package initialization behavior and convenient exports; it is not mandatory for every modern package.
+- __all__ mainly controls names exported by wildcard imports such as from package import *; it does not make names truly public/private.
+- Absolute imports use the package path, e.g. from payment_app.models.payment import Payment.
+- Relative imports use dots relative to the current package, e.g. from .payment import Payment or from ..models.payment import Payment.
+- Keep dependency direction one-way where possible to avoid circular imports and improve testability and maintainability.
+- pyproject.toml is the modern standard project metadata/configuration file and can declare project dependencies and tool configuration.
+- uv manages Python project environments, dependencies, resolution and command execution in a single workflow.
+- uv.lock records the resolved dependency graph so environments can be reproduced consistently.
+- For new projects in this curriculum, prefer uv + pyproject.toml + uv.lock + uv sync/uv run.
+- requirements.txt remains valid for some legacy and deployment workflows, but it is not the same abstraction as uv or pyproject.toml.
+
 ### Type Hints & Pyright
 
 - Type annotations describe expected types but do not by themselves provide runtime validation.
@@ -87,6 +102,8 @@ Not started.
 - Static typing improves development-time safety but should not be confused with runtime input validation.
 - Separate API schemas, domain models and persistence models when their responsibilities differ.
 - Prefer exact decimal representations for financial amounts rather than binary floating-point values.
+- Keep package dependencies directional and avoid circular imports.
+- Prefer reproducible dependency resolution through a lock file for production projects.
 
 ## AI Engineering
 
@@ -118,11 +135,17 @@ Pydantic models define validated application/API data contracts; SQLAlchemy ORM 
 
 To be documented during learning.
 
+### uv + pyproject.toml vs pip + requirements.txt
+
+pip + requirements.txt is a package installation workflow commonly used by existing Python projects. uv is a broader project/dependency/environment workflow. pyproject.toml defines project metadata and dependency requirements, while uv.lock records the resolved versions. The preferred workflow for this curriculum is uv + pyproject.toml + uv.lock.
+
 ## Production Lessons
 
 - Keep API contracts independent from persistence models when the system has meaningful domain boundaries.
 - Use modern library APIs rather than legacy syntax when starting new production code.
 - For payment systems, choose numeric representations deliberately; do not use float for exact money calculations.
+- Use explicit package boundaries and one-way dependencies where practical.
+- Treat dependency locking as part of reproducible production builds.
 
 ## Common Mistakes
 
@@ -132,7 +155,8 @@ To be documented during learning.
 - Assuming Python type annotations enforce runtime validation; use appropriate runtime validation such as Pydantic at external boundaries.
 - Assuming Pydantic BaseModel is immutable by default.
 - Starting new SQLAlchemy 2.x code with the older declarative_base()/Column style when the typed DeclarativeBase/Mapped/mapped_column style is appropriate.
+- Treating requirements.txt as a direct equivalent of uv; they operate at different abstraction levels.
 
 ## Next Learning Target
 
-Session 6 — Modules, Packages & uv.
+Session 7 — Exceptions, Context Managers, Decorators & Configuration.
