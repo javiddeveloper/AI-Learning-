@@ -4,7 +4,7 @@
 Phase 1 — Python & FastAPI Backend Foundation
 
 ## Current Topic
-Session 7 — Exceptions, Context Managers, Decorators & Configuration
+Session 8 — Async Python & asyncio
 
 ## Current Status
 NOT_STARTED
@@ -19,20 +19,27 @@ Build the Python and FastAPI foundation required for production AI engineering.
 - Session 4 — Type Hints & Pyright
 - Session 5 — Dataclasses, Pydantic & ORM Models
 - Session 6 — Modules, Packages & uv
+- Session 7 — Exceptions, Context Managers, Decorators & Configuration
 
 ## Current Session Result
-Session 6 was completed through a practical production-oriented payment package using src layout. The session covered modules, packages, __init__.py, __all__, absolute and relative imports, dependency direction, circular dependency avoidance, virtual environments, uv, pyproject.toml, uv.lock, uv sync and uv run. The modern uv workflow was also compared with pip + requirements.txt.
+Session 7 was completed through a payment-service exercise. It covered custom exception hierarchy, try/except/else/finally, decorators, functools.wraps, context managers, transaction lifecycle and .env configuration with pydantic-settings.
+
+Decorator mental model: Python can replace a function with a wrapper that adds behavior before and after calling the original function. `*args` and `**kwargs` forward arbitrary arguments, while `functools.wraps` preserves metadata of the original function.
+
+Context manager mental model: establish a controlled lifecycle around a block of code — setup → use → guaranteed cleanup. Transaction-style examples map this to BEGIN → work → COMMIT or ROLLBACK → CLOSE.
 
 ## Current Confidence
-9/10 for Modules, Packages & uv.
+8/10 for Session 7 topics.
 
 ## Key Mental Model
-- Module → a Python .py file containing reusable code.
-- Package → a structured namespace containing related modules.
-- pyproject.toml → project metadata, dependency declarations and tool configuration.
-- uv.lock → resolved dependency versions for reproducible environments.
-- uv → project, environment, dependency and command workflow manager.
-- Dependency direction should remain one-way to avoid circular dependencies.
+- Exception hierarchy → model expected application failures explicitly.
+- try/except/else/finally → separate normal execution, failure handling, success-only work and guaranteed cleanup.
+- Decorator → wrap a function to add cross-cutting behavior without changing its business logic.
+- Context Manager → manage setup/use/cleanup around a scoped block reliably.
+- `.env` + pydantic-settings → externalize configuration and validate/parse it into typed application settings.
+
+## Explanation Requirement
+For new concepts with non-obvious execution flow or abstractions, do not move forward based only on code examples. Explain the mental model, step-by-step execution, internal control flow, and a practical use case. Connect to Kotlin/Java/Android concepts when useful. If understanding is unclear, simplify and explain before marking the topic complete.
 
 ## Existing Strengths
 - Kotlin and Java
@@ -48,9 +55,6 @@ Session 6 was completed through a practical production-oriented payment package 
 - Banking, POS and payment systems
 - System design
 
-## Important Learning Context
-Do not restart general software engineering education. Map new Python and AI concepts to existing Kotlin/Java knowledge when useful.
-
 ## Current Weaknesses to Validate
 - Python-specific idioms
 - Python async model and event loop
@@ -63,21 +67,20 @@ Do not restart general software engineering education. Map new Python and AI con
 Session 3 OOP fundamentals were not formally completed before Session 4. Session 4 nevertheless covered Protocol and structural typing. OOP fundamentals should be revisited if needed when they become relevant to later implementation, without restarting completed material.
 
 ## Next Recommended Step
-Session 7 — Exceptions, Context Managers, Decorators & Configuration.
+Session 8 — Async Python & asyncio.
 
 Focus on:
-- Exception hierarchy and custom exceptions
-- try / except / else / finally
-- Context managers and with
-- contextlib
-- Decorators
-- functools.wraps
-- Environment configuration
-- pydantic-settings
-- Production error-handling patterns
+- async / await
+- Coroutine
+- Event Loop
+- asyncio
+- Concurrent I/O
+- Blocking vs non-blocking
+- How Python async differs from and relates to Kotlin Coroutines
+- Production timeout and cancellation considerations
 
 ## Last Session
-Session 6 — Modules, Packages & uv
+Session 7 — Exceptions, Context Managers, Decorators & Configuration
 
 ## Next Action
-Start Session 7.
+Start Session 8 with the mental model of Coroutine and Event Loop before introducing larger asyncio APIs.
