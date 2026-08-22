@@ -17,6 +17,27 @@ This roadmap combines:
 
 The learner already has strong experience in Kotlin, Java, Android, REST, SQL, Docker, testing, reliability, system design, and production systems. Therefore, general software engineering topics should not be unnecessarily repeated.
 
+## Explanation Requirement
+
+New concepts must not be treated as completed merely because code was shown or copied.
+
+When a topic contains a concept whose internal behavior, lifecycle, control flow, syntax, or abstraction is not obvious, the concept must be explicitly explained before moving on. This includes explaining what happens behind the syntax, why the abstraction exists, and how execution flows through it.
+
+For such concepts, prefer this sequence:
+
+1. Simple mental model.
+2. Step-by-step execution flow.
+3. Connection to a familiar Kotlin/Java/Android concept when useful.
+4. Minimal example.
+5. Production use case.
+6. Hands-on exercise or verification of understanding.
+
+Do not skip explanations just because the learner can read the code. Examples such as decorators, `*args`/`**kwargs`, `functools.wraps`, context managers, `with`, `yield`, async execution, event loops, dependency injection, and other non-obvious Python/AI abstractions should be broken down when they are introduced.
+
+If the learner explicitly says a concept is not understood, stop progressing through the curriculum and explain that concept from a simpler level before marking the section complete.
+
+---
+
 ## Long-Term Path
 
 1. Python & FastAPI Backend Foundation
