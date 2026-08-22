@@ -11,7 +11,7 @@
 **Phase 1 — Python & FastAPI Backend Foundation**
 
 ## Current Topic
-**Session 7 — Exceptions, Context Managers, Decorators & Configuration**
+**Session 8 — Async Python & asyncio**
 
 ## Phase 1 Progress
 | Topic | Status | Confidence | Notes |
@@ -22,8 +22,8 @@
 | Type Hints & Pyright | COMPLETED | 9/10 | Practiced annotations, generics, Literal, TypedDict, Callable, Protocol and static checking with Pyright. |
 | Dataclasses vs Pydantic vs ORM | COMPLETED | 8.8/10 | Implemented and reviewed a payment-domain flow using Dataclass, Pydantic v2 and SQLAlchemy 2.x ORM models. |
 | Modules, Packages & uv | COMPLETED | 9/10 | Implemented a src-layout package, imports, __init__.py, dependency direction, uv, pyproject.toml and uv.lock. Compared uv with pip + requirements.txt. |
-| Exceptions, Context Managers & Decorators | PRACTICING | 7/10 | Basic exception handling practiced; full topic remains. |
-| Configuration & pydantic-settings | NOT_STARTED | - | |
+| Exceptions, Context Managers & Decorators | COMPLETED | 8/10 | Practiced custom exceptions, try/except/else/finally, context managers, decorators and functools.wraps. Core execution flow and mental models were explained. |
+| Configuration & pydantic-settings | COMPLETED | 8/10 | Practiced .env-based configuration and pydantic-settings in the Session 7 payment exercise. |
 | Async Python & asyncio | NOT_STARTED | - | |
 | HTTP & REST | NOT_STARTED | - | |
 | FastAPI Fundamentals | NOT_STARTED | - | |
@@ -42,7 +42,7 @@
 | AI-Ready Backend | NOT_STARTED | - | |
 
 ## Completion Rule
-A topic is COMPLETED only after explanation in the learner's own words plus a practical implementation reviewed in a session.
+A topic is COMPLETED only after explanation in the learner's own words plus a practical implementation reviewed in a session. For non-obvious concepts, code alone is insufficient: the execution model and mental model must also be understood and explained before completion.
 
 ## Session History
 ### Session 1 — Python Fundamentals
@@ -81,6 +81,21 @@ Also compared the modern uv + pyproject.toml + uv.lock workflow with pip + requi
 
 **Confidence:** 9/10
 
-**Production notes:** __init__.py is not strictly required for every modern Python package because namespace packages exist. __all__ mainly controls wildcard-import exports. pyproject.toml is the modern project metadata/configuration standard, while requirements.txt remains valid for some workflows. For new projects in this curriculum, uv + pyproject.toml + uv.lock is preferred.
+### Session 7 — Exceptions, Context Managers, Decorators & Configuration
+**Status:** COMPLETED
 
-**Next:** Session 7 — Exceptions, Context Managers, Decorators & Configuration.
+Practiced a payment-service exercise covering:
+
+- Exception hierarchy and custom exceptions.
+- try / except / else / finally execution flow.
+- Context managers and with, including transaction-style BEGIN / COMMIT / ROLLBACK / CLOSE lifecycle.
+- Decorators as functions that wrap another function to add behavior without modifying the original business logic.
+- *args and **kwargs for forwarding arbitrary function arguments.
+- functools.wraps for preserving the wrapped function's metadata.
+- Environment configuration using .env and pydantic-settings.
+
+The non-obvious execution flow of decorators and context managers was explicitly explained with simple mental models and Kotlin-style resource lifecycle comparisons.
+
+**Confidence:** 8/10
+
+**Next:** Session 8 — Async Python & asyncio.
