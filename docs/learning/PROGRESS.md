@@ -11,7 +11,7 @@
 **Phase 1 — Python & FastAPI Backend Foundation**
 
 ## Current Topic
-**Session 8 — Async Python & asyncio**
+**Session 9 — HTTP & REST**
 
 ## Phase 1 Progress
 | Topic | Status | Confidence | Notes |
@@ -22,9 +22,9 @@
 | Type Hints & Pyright | COMPLETED | 9/10 | Practiced annotations, generics, Literal, TypedDict, Callable, Protocol and static checking with Pyright. |
 | Dataclasses vs Pydantic vs ORM | COMPLETED | 8.8/10 | Implemented and reviewed a payment-domain flow using Dataclass, Pydantic v2 and SQLAlchemy 2.x ORM models. |
 | Modules, Packages & uv | COMPLETED | 9/10 | Implemented a src-layout package, imports, __init__.py, dependency direction, uv, pyproject.toml and uv.lock. Compared uv with pip + requirements.txt. |
-| Exceptions, Context Managers & Decorators | COMPLETED | 8/10 | Practiced custom exceptions, try/except/else/finally, context managers, decorators and functools.wraps. Core execution flow and mental models were explained. |
+| Exceptions, Context Managers & Decorators | COMPLETED | 8/10 | Practiced custom exceptions, try/except/else/finally, context managers, decorators, functools.wraps and configuration with pydantic-settings. |
 | Configuration & pydantic-settings | COMPLETED | 8/10 | Practiced .env-based configuration and pydantic-settings in the Session 7 payment exercise. |
-| Async Python & asyncio | NOT_STARTED | - | |
+| Async Python & asyncio | PRACTICING | 8/10 | Covered async/await, coroutines, event loop, blocking vs non-blocking, concurrent I/O and asyncio.gather. Practical exercise implemented as a payment-processing simulation. |
 | HTTP & REST | NOT_STARTED | - | |
 | FastAPI Fundamentals | NOT_STARTED | - | |
 | Pydantic with FastAPI | NOT_STARTED | - | |
@@ -84,18 +84,19 @@ Also compared the modern uv + pyproject.toml + uv.lock workflow with pip + requi
 ### Session 7 — Exceptions, Context Managers, Decorators & Configuration
 **Status:** COMPLETED
 
-Practiced a payment-service exercise covering:
-
-- Exception hierarchy and custom exceptions.
-- try / except / else / finally execution flow.
-- Context managers and with, including transaction-style BEGIN / COMMIT / ROLLBACK / CLOSE lifecycle.
-- Decorators as functions that wrap another function to add behavior without modifying the original business logic.
-- *args and **kwargs for forwarding arbitrary function arguments.
-- functools.wraps for preserving the wrapped function's metadata.
-- Environment configuration using .env and pydantic-settings.
-
-The non-obvious execution flow of decorators and context managers was explicitly explained with simple mental models and Kotlin-style resource lifecycle comparisons.
+Practiced a payment-service exercise covering custom exception hierarchy, try/except/else/finally, context managers and transaction lifecycle, decorators, functools.wraps, argument forwarding with *args/**kwargs, and .env configuration with pydantic-settings.
 
 **Confidence:** 8/10
 
-**Next:** Session 8 — Async Python & asyncio.
+### Session 8 — Async Python & asyncio
+**Status:** PRACTICING
+
+Covered the mental model of sync vs async, I/O-bound vs CPU-bound work, async/await, coroutines, the event loop, blocking vs non-blocking execution and concurrent I/O.
+
+A practical payment-processing exercise was implemented with three simulated requests of different durations. The sequential version demonstrates that awaiting each coroutine one by one takes approximately the sum of all delays. The concurrent version uses asyncio.gather to start independent I/O operations together and completes in approximately the longest individual delay.
+
+Production relevance: async is essential for efficiently handling concurrent network-bound work such as LLM API calls, database/network I/O and external service integrations. Blocking calls inside async code can stall the event loop and reduce throughput.
+
+**Confidence:** 8/10
+
+**Next:** Session 9 — HTTP & REST.
