@@ -4,7 +4,7 @@
 Phase 1 — Python & FastAPI Backend Foundation
 
 ## Current Topic
-Session 8 — Async Python & asyncio
+Session 9 — HTTP & REST
 
 ## Current Status
 NOT_STARTED
@@ -22,24 +22,32 @@ Build the Python and FastAPI foundation required for production AI engineering.
 - Session 7 — Exceptions, Context Managers, Decorators & Configuration
 
 ## Current Session Result
-Session 7 was completed through a payment-service exercise. It covered custom exception hierarchy, try/except/else/finally, decorators, functools.wraps, context managers, transaction lifecycle and .env configuration with pydantic-settings.
+Session 8 covered the core Async Python model required for production backend and AI engineering:
 
-Decorator mental model: Python can replace a function with a wrapper that adds behavior before and after calling the original function. `*args` and `**kwargs` forward arbitrary arguments, while `functools.wraps` preserves metadata of the original function.
+- async / await
+- Coroutine lifecycle
+- Event Loop responsibilities
+- asyncio
+- I/O-bound vs CPU-bound work
+- Blocking vs non-blocking execution
+- Sequential async execution
+- Concurrent execution with asyncio.gather
 
-Context manager mental model: establish a controlled lifecycle around a block of code — setup → use → guaranteed cleanup. Transaction-style examples map this to BEGIN → work → COMMIT or ROLLBACK → CLOSE.
+Practical exercise: a payment-processing simulation with three independent requests using asyncio.sleep. The sequential flow waits for each operation before starting the next. The concurrent flow uses asyncio.gather so independent I/O waits overlap, reducing total wall-clock time to approximately the longest operation instead of the sum of all operations.
 
 ## Current Confidence
-8/10 for Session 7 topics.
+8/10 for Session 8 topics.
 
 ## Key Mental Model
-- Exception hierarchy → model expected application failures explicitly.
-- try/except/else/finally → separate normal execution, failure handling, success-only work and guaranteed cleanup.
-- Decorator → wrap a function to add cross-cutting behavior without changing its business logic.
-- Context Manager → manage setup/use/cleanup around a scoped block reliably.
-- `.env` + pydantic-settings → externalize configuration and validate/parse it into typed application settings.
+- async def defines a coroutine function; calling it creates a coroutine object rather than immediately completing the work.
+- await suspends the current coroutine at an awaitable operation and gives the Event Loop an opportunity to run other ready tasks.
+- The Event Loop coordinates coroutine execution and resumes work when awaited operations become ready.
+- Async improves throughput for concurrent I/O; it does not automatically make CPU-heavy Python code faster.
+- A blocking operation such as time.sleep inside an async path can block the Event Loop. Prefer non-blocking async APIs for I/O.
+- asyncio.gather is appropriate when multiple independent async operations can be awaited concurrently and all results are needed.
 
-## Explanation Requirement
-For new concepts with non-obvious execution flow or abstractions, do not move forward based only on code examples. Explain the mental model, step-by-step execution, internal control flow, and a practical use case. Connect to Kotlin/Java/Android concepts when useful. If understanding is unclear, simplify and explain before marking the topic complete.
+## Production Relevance
+Future AI services will frequently wait on external LLM APIs, databases and HTTP services. Async code allows other requests or tasks to make progress while one operation is waiting on network I/O. Production code still requires explicit timeout, cancellation, retry, rate-limit and concurrency-limit strategies, which will be covered in later sessions.
 
 ## Existing Strengths
 - Kotlin and Java
@@ -57,7 +65,6 @@ For new concepts with non-obvious execution flow or abstractions, do not move fo
 
 ## Current Weaknesses to Validate
 - Python-specific idioms
-- Python async model and event loop
 - FastAPI ecosystem
 - Pydantic integration with FastAPI
 - SQLAlchemy 2.x beyond model definitions
@@ -67,20 +74,22 @@ For new concepts with non-obvious execution flow or abstractions, do not move fo
 Session 3 OOP fundamentals were not formally completed before Session 4. Session 4 nevertheless covered Protocol and structural typing. OOP fundamentals should be revisited if needed when they become relevant to later implementation, without restarting completed material.
 
 ## Next Recommended Step
-Session 8 — Async Python & asyncio.
+Session 9 — HTTP & REST.
 
 Focus on:
-- async / await
-- Coroutine
-- Event Loop
-- asyncio
-- Concurrent I/O
-- Blocking vs non-blocking
-- How Python async differs from and relates to Kotlin Coroutines
-- Production timeout and cancellation considerations
+- HTTP request/response lifecycle
+- Methods and resource semantics
+- Headers
+- Request body
+- Query and path parameters
+- Status codes
+- Authentication
+- Timeout and retry boundaries
+- Rate limiting
+- Idempotency
 
 ## Last Session
-Session 7 — Exceptions, Context Managers, Decorators & Configuration
+Session 8 — Async Python & asyncio
 
 ## Next Action
-Start Session 8 with the mental model of Coroutine and Event Loop before introducing larger asyncio APIs.
+Start Session 9 by connecting existing Android/REST knowledge to backend-side HTTP semantics and production API design.
