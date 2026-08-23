@@ -29,6 +29,16 @@ Completed initial fundamentals required for backend and AI engineering.
 - Keep domain responsibilities separated across modules instead of putting all logic in main.py.
 - Explicit imports are preferred over wildcard imports.
 
+### Exceptions, Context Managers, Decorators & Configuration
+
+- A custom exception hierarchy models expected application failures explicitly and makes error handling more precise.
+- try/except handles expected failures; else runs only after successful execution; finally is for cleanup that must run regardless of success or failure.
+- A context manager manages a scoped lifecycle: setup → use → guaranteed cleanup. Transaction-style flow maps naturally to BEGIN → work → COMMIT or ROLLBACK → CLOSE.
+- Decorators wrap functions to add cross-cutting behavior without changing the core business logic.
+- *args and **kwargs allow a wrapper to forward arbitrary positional and keyword arguments to the wrapped function.
+- functools.wraps preserves important metadata of the original wrapped function.
+- .env + pydantic-settings externalizes configuration from code and loads it into typed, validated application settings.
+
 ### Modules, Packages & uv
 
 - A module is a Python .py file containing reusable code.
@@ -74,7 +84,16 @@ Completed initial fundamentals required for backend and AI engineering.
 
 ## Async Python
 
-Not started.
+- async def defines a coroutine function. Calling it creates a coroutine object; execution is coordinated by an Event Loop when the coroutine is awaited or scheduled.
+- A Coroutine is a suspendable unit of asynchronous work. It can pause at an await point and later resume from that point.
+- await waits for an awaitable result without necessarily blocking the Event Loop, allowing other ready async work to progress.
+- The Event Loop coordinates ready coroutines and resumes them when awaited I/O or other awaitable operations become ready.
+- Async is primarily valuable for concurrent I/O-bound work such as HTTP requests, database/network calls and future LLM API integrations.
+- Async does not automatically make CPU-bound work faster. CPU-heavy work requires a different concurrency strategy.
+- Blocking code inside an async execution path can stall the Event Loop. For example, time.sleep blocks, while await asyncio.sleep cooperatively suspends the coroutine.
+- Sequential awaits run dependent or explicitly ordered operations one after another.
+- asyncio.gather is useful for independent async operations that can make progress concurrently when all results are required.
+- Production async systems need explicit timeout, cancellation, retry and concurrency-limit policies in addition to async syntax.
 
 ## FastAPI
 
@@ -104,6 +123,8 @@ Not started.
 - Prefer exact decimal representations for financial amounts rather than binary floating-point values.
 - Keep package dependencies directional and avoid circular imports.
 - Prefer reproducible dependency resolution through a lock file for production projects.
+- Do not put blocking operations into async request paths without deliberately moving them outside the Event Loop.
+- Concurrent I/O can improve throughput and latency without requiring one thread per waiting operation.
 
 ## AI Engineering
 
@@ -121,7 +142,7 @@ To be documented during learning.
 
 ### Python async/await vs Kotlin Coroutines
 
-To be documented during learning.
+Both provide suspendable asynchronous execution. Kotlin Coroutines are integrated with Kotlin dispatchers and structured concurrency, while Python asyncio is built around an Event Loop and awaitable objects. In both ecosystems, suspension at a non-blocking operation allows other work to progress; blocking calls can still harm concurrency.
 
 ### Pydantic vs Kotlin Data Classes
 
@@ -146,6 +167,8 @@ pip + requirements.txt is a package installation workflow commonly used by exist
 - For payment systems, choose numeric representations deliberately; do not use float for exact money calculations.
 - Use explicit package boundaries and one-way dependencies where practical.
 - Treat dependency locking as part of reproducible production builds.
+- Use async primarily for concurrent I/O and avoid assuming it is a general CPU-performance optimization.
+- Protect production async calls with explicit timeout, cancellation and concurrency controls.
 
 ## Common Mistakes
 
@@ -156,7 +179,10 @@ pip + requirements.txt is a package installation workflow commonly used by exist
 - Assuming Pydantic BaseModel is immutable by default.
 - Starting new SQLAlchemy 2.x code with the older declarative_base()/Column style when the typed DeclarativeBase/Mapped/mapped_column style is appropriate.
 - Treating requirements.txt as a direct equivalent of uv; they operate at different abstraction levels.
+- Calling blocking functions such as time.sleep directly inside async request paths.
+- Assuming async automatically parallelizes CPU-heavy work.
+- Using asyncio.gather for operations that are not independent without considering ordering, cancellation and failure semantics.
 
 ## Next Learning Target
 
-Session 7 — Exceptions, Context Managers, Decorators & Configuration.
+Session 9 — HTTP & REST.
