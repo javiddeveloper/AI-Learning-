@@ -4,7 +4,7 @@
 Phase 1 — Python & FastAPI Backend Foundation
 
 ## Current Topic
-Session 9 — HTTP & REST
+Session 10 — FastAPI Fundamentals
 
 ## Current Status
 NOT_STARTED
@@ -12,42 +12,50 @@ NOT_STARTED
 ## Current Goal
 Build the Python and FastAPI foundation required for production AI engineering.
 
-## Completed So Far
-- Session 1 — Python Fundamentals
-- Session 2 — Python Data Model / Core Collections
-- Session 3 — Functions & Modules portion
-- Session 4 — Type Hints & Pyright
-- Session 5 — Dataclasses, Pydantic & ORM Models
-- Session 6 — Modules, Packages & uv
-- Session 7 — Exceptions, Context Managers, Decorators & Configuration
+## Session 9 Result
+Session 9 — HTTP & REST is COMPLETED with confidence 8.5/10.
 
-## Current Session Result
-Session 8 covered the core Async Python model required for production backend and AI engineering:
+Covered:
+- HTTP request/response lifecycle
+- HTTP methods and resource semantics
+- Headers and request body
+- Query/path parameters
+- Status codes
+- Authentication vs authorization
+- Timeout
+- Retry and exponential backoff
+- Rate limiting
+- Idempotency
+- REST API design
+- FastAPI routing
+- Pydantic request/response models
+- Dependency Injection and middleware concepts
+- OpenAPI / Swagger concepts
 
-- async / await
-- Coroutine lifecycle
-- Event Loop responsibilities
-- asyncio
-- I/O-bound vs CPU-bound work
-- Blocking vs non-blocking execution
-- Sequential async execution
-- Concurrent execution with asyncio.gather
-
-Practical exercise: a payment-processing simulation with three independent requests using asyncio.sleep. The sequential flow waits for each operation before starting the next. The concurrent flow uses asyncio.gather so independent I/O waits overlap, reducing total wall-clock time to approximately the longest operation instead of the sum of all operations.
-
-## Current Confidence
-8/10 for Session 8 topics.
+Practical implementation: a Restaurant API with GET, POST, PATCH and DELETE endpoints, request validation, response models, query/path parameters and HTTP status codes. The implementation is documented in `docs/learning/sessions/SESSION_09_HTTP_REST.md`.
 
 ## Key Mental Model
-- async def defines a coroutine function; calling it creates a coroutine object rather than immediately completing the work.
-- await suspends the current coroutine at an awaitable operation and gives the Event Loop an opportunity to run other ready tasks.
-- The Event Loop coordinates coroutine execution and resumes work when awaited operations become ready.
-- Async improves throughput for concurrent I/O; it does not automatically make CPU-heavy Python code faster.
-- A blocking operation such as time.sleep inside an async path can block the Event Loop. Prefer non-blocking async APIs for I/O.
-- asyncio.gather is appropriate when multiple independent async operations can be awaited concurrently and all results are needed.
+
+```text
+HTTP Request
+    ↓
+FastAPI Router
+    ↓
+Path / Query / Headers / Body
+    ↓
+Pydantic Validation
+    ↓
+Endpoint Function
+    ↓
+Business Logic
+    ↓
+Response Model
+    ↓
+JSON + HTTP Status
+```
 
 ## Production Relevance
-Future AI services will frequently wait on external LLM APIs, databases and HTTP services. Async code allows other requests or tasks to make progress while one operation is waiting on network I/O. Production code still requires explicit timeout, cancellation, retry, rate-limit and concurrency-limit strategies, which will be covered in later sessions.
+HTTP semantics are the boundary between mobile/web clients, FastAPI services and future external LLM/model APIs. Timeouts, retry safety, idempotency and rate limiting are essential reliability and cost controls.
 
 ## Existing Strengths
 - Kotlin and Java
@@ -60,7 +68,6 @@ Future AI services will frequently wait on external LLM APIs, databases and HTTP
 - Git and Docker
 - Error handling, retries and logging
 - Production software development
-- Banking, POS and payment systems
 - System design
 
 ## Current Weaknesses to Validate
@@ -71,25 +78,20 @@ Future AI services will frequently wait on external LLM APIs, databases and HTTP
 - Python testing ecosystem
 
 ## Important Continuity Note
-Session 3 OOP fundamentals were not formally completed before Session 4. Session 4 nevertheless covered Protocol and structural typing. OOP fundamentals should be revisited if needed when they become relevant to later implementation, without restarting completed material.
+Session 3 OOP fundamentals were not formally completed before Session 4. Revisit them only when they become relevant; do not restart completed material.
 
 ## Next Recommended Step
-Session 9 — HTTP & REST.
+Session 10 — FastAPI Fundamentals.
 
 Focus on:
-- HTTP request/response lifecycle
-- Methods and resource semantics
-- Headers
-- Request body
-- Query and path parameters
-- Status codes
-- Authentication
-- Timeout and retry boundaries
-- Rate limiting
-- Idempotency
+- FastAPI application structure
+- Routing and request handling
+- GET/POST/PUT/PATCH/DELETE
+- Path/query/body parameters
+- Response models and status codes
+- OpenAPI / Swagger
+- Lifespan
+- Graceful shutdown
+- Health/readiness endpoints
 
-## Last Session
-Session 8 — Async Python & asyncio
-
-## Next Action
-Start Session 9 by connecting existing Android/REST knowledge to backend-side HTTP semantics and production API design.
+Advanced architecture should remain deferred until the roadmap calls for it.
