@@ -11,7 +11,7 @@
 **Phase 1 — Python & FastAPI Backend Foundation**
 
 ## Current Topic
-**Session 9 — HTTP & REST**
+**Session 11 — Pydantic with FastAPI**
 
 ## Phase 1 Progress
 | Topic | Status | Confidence | Notes |
@@ -25,8 +25,8 @@
 | Exceptions, Context Managers & Decorators | COMPLETED | 8/10 | Practiced custom exceptions, try/except/else/finally, context managers, decorators, functools.wraps and configuration with pydantic-settings. |
 | Configuration & pydantic-settings | COMPLETED | 8/10 | Practiced .env-based configuration and pydantic-settings in the Session 7 payment exercise. |
 | Async Python & asyncio | PRACTICING | 8/10 | Covered async/await, coroutines, event loop, blocking vs non-blocking, concurrent I/O and asyncio.gather. Practical exercise implemented as a payment-processing simulation. |
-| HTTP & REST | NOT_STARTED | - | |
-| FastAPI Fundamentals | NOT_STARTED | - | |
+| HTTP & REST | COMPLETED | 9/10 | HTTP methods, request/response model, status codes, headers, REST resources and practical REST API design reviewed. |
+| FastAPI Fundamentals | COMPLETED | 9/10 | FastAPI application, routing, GET/POST/PUT/PATCH/DELETE, path/query parameters, request bodies, response handling and Swagger/OpenAPI practiced. |
 | Pydantic with FastAPI | NOT_STARTED | - | |
 | FastAPI Dependency Injection | NOT_STARTED | - | |
 | PostgreSQL | NOT_STARTED | - | |
@@ -100,3 +100,19 @@ Production relevance: async is essential for efficiently handling concurrent net
 **Confidence:** 8/10
 
 **Next:** Session 9 — HTTP & REST.
+
+### Session 9 — HTTP & REST
+**Status:** COMPLETED
+
+Reviewed HTTP request/response semantics, methods, status codes, headers, REST resource modeling and practical REST API design.
+
+**Confidence:** 9/10
+
+### Session 10 — FastAPI Fundamentals
+**Status:** COMPLETED
+
+Reviewed FastAPI application setup, path operations and routing, HTTP methods, path parameters, query parameters, request bodies, Pydantic request models, JSON responses and Swagger/OpenAPI. The learner already had sufficient practical understanding, so the session was completed without repeating implementation exercises.
+
+**Confidence:** 9/10
+
+**Next:** Session 11 — Pydantic with FastAPI.
