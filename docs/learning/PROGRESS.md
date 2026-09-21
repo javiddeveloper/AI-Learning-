@@ -11,7 +11,7 @@
 **Phase 1 — Python & FastAPI Backend Foundation**
 
 ## Current Topic
-**Session 11 — Pydantic with FastAPI**
+**Session 18 — Testing with pytest**
 
 ## Phase 1 Progress
 | Topic | Status | Confidence | Notes |
@@ -27,15 +27,15 @@
 | Async Python & asyncio | PRACTICING | 8/10 | Covered async/await, coroutines, event loop, blocking vs non-blocking, concurrent I/O and asyncio.gather. Practical exercise implemented as a payment-processing simulation. |
 | HTTP & REST | COMPLETED | 9/10 | HTTP methods, request/response model, status codes, headers, REST resources and practical REST API design reviewed. |
 | FastAPI Fundamentals | COMPLETED | 9/10 | FastAPI application, routing, GET/POST/PUT/PATCH/DELETE, path/query parameters, request bodies, response handling and Swagger/OpenAPI practiced. |
-| Pydantic with FastAPI | NOT_STARTED | - | |
-| FastAPI Dependency Injection | NOT_STARTED | - | |
+| Pydantic with FastAPI | COMPLETED | 9/10 | FastAPI/Pydantic validation and serialization practiced. |
+| FastAPI Dependency Injection | COMPLETED | 8/10 | Depends and dependency patterns covered. |
 | PostgreSQL | NOT_STARTED | - | |
 | SQLAlchemy 2.x | PRACTICING | 8/10 | ORM model syntax practiced; sessions, relationships, transactions and queries remain. |
 | Alembic | NOT_STARTED | - | |
 | httpx | NOT_STARTED | - | |
 | Retry, Timeout & Resilience | NOT_STARTED | - | |
-| Authentication & Authorization | NOT_STARTED | - | |
-| Testing with pytest | NOT_STARTED | - | |
+| Authentication & Authorization | COMPLETED | 8/10 | JWT, access/refresh tokens, password hashing and OAuth2 concepts covered. |
+| Testing with pytest | COMPLETED | 8/10 | pytest, TestClient, fixtures, unit/integration testing, mocking and async tests covered. |
 | Ruff, Pyright & Pre-commit | IN_PROGRESS | 8/10 | Pyright practiced; Ruff and pre-commit remain. |
 | Docker & Docker Compose | NOT_STARTED | - | |
 | Production Backend Concepts | NOT_STARTED | - | |
@@ -45,6 +45,15 @@
 A topic is COMPLETED only after explanation in the learner's own words plus a practical implementation reviewed in a session. For non-obvious concepts, code alone is insufficient: the execution model and mental model must also be understood and explained before completion.
 
 ## Session History
+### Session 18 — Testing
+**Status:** COMPLETED
+
+Covered pytest, FastAPI TestClient, route and validation testing, fixtures, unit vs integration tests, mocking, async tests with pytest-asyncio and production failure-path testing.
+
+**Confidence:** 8/10
+
+**Next:** Session 19 — Code Quality.
+
 ### Session 1 — Python Fundamentals
 **Status:** COMPLETED
 
