@@ -97,7 +97,7 @@ Completed initial fundamentals required for backend and AI engineering.
 
 ## FastAPI
 
-Not started.
+FastAPI is the typed Python web framework used as the backend foundation for AI services. It provides routing, request parsing, Pydantic validation integration, dependency injection, OpenAPI generation and async endpoint support.
 
 ## Pydantic
 
@@ -109,7 +109,18 @@ SQLAlchemy 2.x ORM model definitions were practiced in Session 5. Database sessi
 
 ## Testing
 
-Not started.
+### pytest
+
+- pytest is the primary Python testing framework in this curriculum and is conceptually similar to JUnit.
+- test_*.py files and test_... functions are the common conventions.
+- FastAPI TestClient enables HTTP-level route testing without manually starting uvicorn.
+- Invalid request bodies should be tested explicitly; FastAPI/Pydantic commonly returns HTTP 422 for validation failures.
+- Fixtures provide reusable test dependencies and setup.
+- Unit tests isolate one component; integration tests verify interaction between components such as HTTP → FastAPI → service → database.
+- Mocks/fakes isolate external services so unit tests remain deterministic.
+- pytest-asyncio enables tests for async def code.
+- Production tests should cover success and failure paths: validation, auth, not-found, conflict, timeout and dependency failures.
+- AI systems additionally need model/output evaluation, which is covered later in the roadmap.
 
 ## Production Engineering
 
@@ -185,4 +196,4 @@ pip + requirements.txt is a package installation workflow commonly used by exist
 
 ## Next Learning Target
 
-Session 9 — HTTP & REST.
+Session 19 — Code Quality: Ruff, Pyright & Pre-commit.
