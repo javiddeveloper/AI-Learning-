@@ -520,6 +520,70 @@ Build an agent using multiple tools with validation and error handling.
 - Circuit breakers
 - Backpressure
 
+### Production Infrastructure Track
+
+After the Docker & Docker Compose foundation, add a dedicated orchestration track before the final production/capstone work.
+
+#### Kubernetes
+
+- Kubernetes mental model
+- Cluster, control plane and worker nodes
+- Pods, Deployments, Services
+- ConfigMaps and Secrets
+- Health probes
+- Resource requests and limits
+- Scaling and rolling updates
+- Networking basics
+- Failure and recovery behavior
+
+#### Helm
+
+- Helm mental model
+- Charts
+- Templates
+- Values
+- Releases
+- Environment-specific configuration
+- Upgrade and rollback
+
+#### Service Mesh
+
+- Why a Service Mesh exists
+- Sidecar/proxy model
+- Service-to-service traffic
+- mTLS
+- Traffic management
+- Retries/timeouts at the mesh layer
+- Observability
+- Operational trade-offs
+
+#### Docker Swarm
+
+- Swarm architecture
+- Services
+- Nodes
+- Scaling
+- Rolling updates
+- Networking
+- Secrets
+- Operational model
+- Kubernetes vs Docker Swarm trade-offs
+
+#### Advanced Container Orchestration
+
+- Scheduling concepts
+- Autoscaling concepts
+- Stateful workloads
+- Persistent storage
+- Affinity/anti-affinity
+- Graceful shutdown
+- Zero-downtime deployment concepts
+- Failure recovery
+- Resource management
+- Production networking
+- Observability
+- Security boundaries
+
 ---
 
 ## Phase 8 — Evaluation, Observability & LLMOps
