@@ -51,3 +51,16 @@ Focus on:
 - Linting
 - Pre-commit
 - CI-oriented quality checks
+
+
+## Future Infrastructure Track
+
+The Production AI Engineering phase will include a dedicated container-orchestration track covering:
+
+- Kubernetes
+- Helm
+- Service Mesh
+- Docker Swarm
+- Advanced container orchestration
+
+These topics will come after Docker/Docker Compose fundamentals and will be treated as production infrastructure knowledge rather than generic DevOps study.
