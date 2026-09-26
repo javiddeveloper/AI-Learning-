@@ -317,12 +317,35 @@ Operate AI systems reliably under real production constraints.
 - Queues and background jobs
 - Async workloads
 - Deployment
+- Container orchestration
+- Kubernetes
+- Helm
+- Service Mesh concepts and architecture
+- Docker Swarm and comparison with Kubernetes
+- Advanced container orchestration patterns
 - Scalability
 - Reliability
 
+## Container Orchestration Track
+
+After Docker and Docker Compose foundations, learn production container orchestration in a dedicated track:
+
+- Kubernetes fundamentals and architecture
+- Pods, Deployments, Services, ConfigMaps and Secrets
+- Health probes and resource management
+- Scaling and rolling updates
+- Helm charts and templating
+- Service Mesh concepts, traffic management and observability
+- Docker Swarm architecture and operational model
+- Kubernetes vs Docker Swarm trade-offs
+- Advanced container orchestration patterns
+- Production failure modes and operational considerations
+
+These topics are intentionally introduced after the Docker/Compose foundation and before the capstone infrastructure work.
+
 ## Outcome
 
-Design AI services that remain reliable when models are slow, unavailable, expensive, or rate-limited.
+Design AI services that remain reliable when models are slow, unavailable, expensive, or rate-limited, and understand how containerized AI services are orchestrated in production.
 
 ---
 
