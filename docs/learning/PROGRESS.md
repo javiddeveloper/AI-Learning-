@@ -38,6 +38,11 @@
 | Testing with pytest | COMPLETED | 8/10 | pytest, TestClient, fixtures, unit/integration testing, mocking and async tests covered. |
 | Ruff, Pyright & Pre-commit | IN_PROGRESS | 8/10 | Pyright practiced; Ruff and pre-commit remain. |
 | Docker & Docker Compose | NOT_STARTED | - | |
+| Kubernetes & Container Orchestration | NOT_STARTED | - | Planned for the Production AI Engineering infrastructure track. |
+| Helm | NOT_STARTED | - | Planned after Kubernetes fundamentals. |
+| Service Mesh | NOT_STARTED | - | Planned after Kubernetes and networking fundamentals. |
+| Docker Swarm | NOT_STARTED | - | Planned as a comparative orchestration technology. |
+| Advanced Container Orchestration | NOT_STARTED | - | Planned after Kubernetes, Helm and Service Mesh fundamentals. |
 | Production Backend Concepts | NOT_STARTED | - | |
 | AI-Ready Backend | NOT_STARTED | - | |
 
