@@ -137,6 +137,30 @@ SQLAlchemy 2.x ORM model definitions were practiced in Session 5. Database sessi
 - Do not put blocking operations into async request paths without deliberately moving them outside the Event Loop.
 - Concurrent I/O can improve throughput and latency without requiring one thread per waiting operation.
 
+## Code Quality
+
+- Ruff can provide both formatting and linting in a single fast toolchain.
+- Formatting answers how code should be laid out; linting identifies patterns, errors and maintainability issues.
+- Pyright performs static type analysis before runtime. It complements Pydantic runtime validation and pytest behavior testing.
+- Pre-commit automates quality checks at commit time so formatting/linting/type checks are not dependent on developer memory.
+- A production quality gate should separate concerns: Ruff for formatting/linting, Pyright for static typing, pytest for runtime behavior.
+- CI should run the same quality gates so local checks cannot be the only protection.
+- Strict type checking is valuable for backend code because it catches incorrect assumptions before deployment, especially around nullable values, function contracts and dependency boundaries.
+
+### Code Quality Mental Model
+
+```text
+Source
+  ├── Ruff ─────── formatting + linting
+  ├── Pyright ──── static type correctness
+  ├── pytest ───── runtime behavior
+  └── pre-commit ─ automated local gate
+             ↓
+            CI
+             ↓
+         Deployable code
+```
+
 ## Docker & Docker Compose
 
 - A Docker image is an immutable application template; a container is a running instance of an image.
@@ -238,4 +262,4 @@ pip + requirements.txt is a package installation workflow commonly used by exist
 
 ## Next Learning Target
 
-Session 19 — Code Quality: Ruff, Pyright & Pre-commit. Session 20 Docker & Docker Compose is completed.
+Session 21 — Phase 1 AI-Ready Backend. Sessions 19 and 20 are completed.
