@@ -36,7 +36,7 @@
 | Retry, Timeout & Resilience | NOT_STARTED | - | |
 | Authentication & Authorization | COMPLETED | 8/10 | JWT, access/refresh tokens, password hashing and OAuth2 concepts covered. |
 | Testing with pytest | COMPLETED | 8/10 | pytest, TestClient, fixtures, unit/integration testing, mocking and async tests covered. |
-| Ruff, Pyright & Pre-commit | IN_PROGRESS | 8/10 | Pyright practiced; Ruff and pre-commit remain. |
+| Ruff, Pyright & Pre-commit | COMPLETED | 8/10 | Completed the Code Quality workflow with Ruff formatting/linting, Pyright strict static typing, Pre-commit hooks and CI-oriented quality gates. |
 | Docker & Docker Compose | COMPLETED | 8/10 | Built and documented a FastAPI + PostgreSQL + Redis Docker Compose stack with networking, named volume, environment variables, health checks and readiness verification. |
 | Kubernetes & Container Orchestration | NOT_STARTED | - | Planned for the Production AI Engineering infrastructure track. |
 | Helm | NOT_STARTED | - | Planned after Kubernetes fundamentals. |
@@ -50,7 +50,7 @@
 A topic is COMPLETED only after explanation in the learner's own words plus a practical implementation reviewed in a session. For non-obvious concepts, code alone is insufficient: the execution model and mental model must also be understood and explained before completion.
 
 ## Session History
-### Session 20 — Docker & Docker Compose
+### Session 21 — Phase 1 AI-Ready Backend
 **Status:** COMPLETED
 
 Implemented a solved Docker Compose exercise containing FastAPI, PostgreSQL and Redis. Covered Dockerfile, image/container lifecycle, Compose networking and service-name DNS, environment variables, PostgreSQL named volume, Redis, health checks, readiness, and `depends_on` health conditions.
