@@ -53,6 +53,26 @@ Focus on:
 - CI-oriented quality checks
 
 
+## Session 20 Result
+
+Session 20 — Docker & Docker Compose is COMPLETED with confidence 8/10.
+
+Implemented:
+- FastAPI containerization with Dockerfile
+- Docker Compose multi-service stack
+- PostgreSQL service with named persistent volume
+- Redis service
+- Compose internal networking and service-name DNS
+- Environment variables
+- PostgreSQL and Redis health checks
+- FastAPI health and readiness endpoints
+- `depends_on` with `service_healthy`
+- Docker Compose lifecycle commands
+- Production considerations for secrets, image pinning, resources, migrations, logging and backups
+
+Implementation:
+`docs/learning/exercises/session-20-docker-compose/`
+
 ## Future Infrastructure Track
 
 The Production AI Engineering phase will include a dedicated container-orchestration track covering:
