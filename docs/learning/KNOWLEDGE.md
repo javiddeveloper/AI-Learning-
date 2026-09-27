@@ -137,6 +137,48 @@ SQLAlchemy 2.x ORM model definitions were practiced in Session 5. Database sessi
 - Do not put blocking operations into async request paths without deliberately moving them outside the Event Loop.
 - Concurrent I/O can improve throughput and latency without requiring one thread per waiting operation.
 
+## Docker & Docker Compose
+
+- A Docker image is an immutable application template; a container is a running instance of an image.
+- A Dockerfile defines how the application image is built.
+- Docker Compose defines and runs a multi-container application as services.
+- Compose creates an internal network and provides DNS resolution by service name. From the FastAPI container, PostgreSQL is reached as `postgres:5432` and Redis as `redis:6379`; `localhost` refers to the FastAPI container itself.
+- A named volume such as `postgres_data:/var/lib/postgresql/data` persists PostgreSQL data independently from the database container lifecycle.
+- `depends_on` controls startup ordering; with `condition: service_healthy`, the dependent service waits for the dependency health check to pass.
+- Container startup does not necessarily mean application readiness. Health/readiness checks verify actual service availability.
+- Environment variables keep deployment-specific configuration outside application code. Secrets should be supplied through a proper secret-management mechanism in production.
+- A Compose health check can be used for both infrastructure services and the API itself.
+- Docker layer caching makes stable dependency layers reusable; copy dependency manifests before application source when designing Dockerfiles.
+- `docker compose down` removes containers and networks but preserves named volumes by default; `docker compose down -v` also removes volumes and therefore persisted database data.
+- Production containers should additionally consider pinned image versions/digests, non-root execution, resource limits, secret management, migrations, logging, monitoring, backups and graceful shutdown.
+
+### Docker Mental Model
+
+```text
+Dockerfile
+    ↓ build
+Image
+    ↓ run
+Container
+    ↓ Compose network
+Service ↔ Service
+    ↓
+PostgreSQL / Redis / FastAPI
+```
+
+### Docker vs Android Mental Model
+
+A useful approximation is:
+
+- Image ≈ packaged application template
+- Container ≈ running isolated process/environment
+- Compose service ≈ a named runtime component
+- Compose network/DNS ≈ infrastructure-level service discovery
+- Volume ≈ persistent storage mounted outside the container lifecycle
+
+This is only a mental-model comparison; Docker isolation and networking are not equivalent to Android application components.
+
+
 ## AI Engineering
 
 Not started.
@@ -196,4 +238,4 @@ pip + requirements.txt is a package installation workflow commonly used by exist
 
 ## Next Learning Target
 
-Session 19 — Code Quality: Ruff, Pyright & Pre-commit.
+Session 19 — Code Quality: Ruff, Pyright & Pre-commit. Session 20 Docker & Docker Compose is completed.
