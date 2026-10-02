@@ -345,6 +345,9 @@ Practice direct API integration before frameworks:
 - Gemini API
 - Request/response lifecycle
 - Provider abstraction concepts
+- API error normalization
+- Provider-independent LLM client boundary
+- Secure API key/configuration handling
 
 ### Session 24 — Streaming & Conversation State
 
@@ -355,6 +358,8 @@ Teach:
 - Conversation history
 - Context management
 - Token budgeting
+- Context truncation strategies
+- Conversation history compaction
 
 ### Session 25 — Prompt Engineering
 
@@ -482,14 +487,14 @@ Build an agent using multiple tools with validation and error handling.
 
 ## Phase 6 — AI Security
 
-### Session 40 — AI Threat Model
+### Session 43 — AI Threat Model
 
 - Prompt injection
 - Indirect prompt injection
 - Data leakage
 - Untrusted model output
 
-### Session 41 — Secure Tool Use
+### Session 44 — Secure Tool Use
 
 - Authorization
 - Least privilege
@@ -501,19 +506,19 @@ Build an agent using multiple tools with validation and error handling.
 
 ## Phase 7 — Production AI Engineering
 
-### Session 42 — Model Routing
+### Session 45 — Model Routing
 
 - Model selection
 - Cost/quality/latency trade-offs
 - Fallback models
 
-### Session 43 — Caching & Rate Limiting
+### Session 46 — Caching & Rate Limiting
 
 - Response caching
 - Semantic caching concepts
 - Rate limits
 
-### Session 44 — Resilience at AI Scale
+### Session 47 — Resilience at AI Scale
 
 - Queues
 - Background jobs
@@ -588,7 +593,7 @@ After the Docker & Docker Compose foundation, add a dedicated orchestration trac
 
 ## Phase 8 — Evaluation, Observability & LLMOps
 
-### Session 45 — AI Observability
+### Session 48 — AI Observability
 
 - Logs
 - Traces
@@ -597,11 +602,11 @@ After the Docker & Docker Compose foundation, add a dedicated orchestration trac
 - Latency
 - Cost
 
-### Session 46 — Langfuse & Tracing
+### Session 49 — Langfuse & Tracing
 
 Implement tracing for LLM calls, RAG and agent workflows.
 
-### Session 47 — AI Evaluation
+### Session 50 — AI Evaluation
 
 - Offline evaluation
 - Online evaluation
@@ -613,11 +618,11 @@ Implement tracing for LLM calls, RAG and agent workflows.
 
 ## Phase 9 — AI System Design
 
-### Session 48 — AI Architecture Patterns
+### Session 51 — AI Architecture Patterns
 
 Design production systems involving models, RAG, tools, queues, caches, and observability.
 
-### Session 49 — System Design Case Studies
+### Session 52 — System Design Case Studies
 
 Practice:
 
@@ -630,7 +635,7 @@ Practice:
 
 ## Phase 10 — ML / DL / Transformer Fundamentals
 
-### Session 50 — Math for AI Engineers
+### Session 53 — Math for AI Engineers
 
 - Probability
 - Statistics
@@ -639,7 +644,7 @@ Practice:
 - Dot product
 - Cosine similarity
 
-### Session 51 — ML Fundamentals
+### Session 54 — ML Fundamentals
 
 - Training vs inference
 - Supervised vs unsupervised
@@ -647,7 +652,7 @@ Practice:
 - Generalization
 - Metrics
 
-### Session 52 — Transformers
+### Session 55 — Transformers
 
 - Tokenization
 - Embeddings
@@ -660,7 +665,7 @@ Practice:
 
 ## Phase 11 — Fine-Tuning & Local LLMs
 
-### Session 53 — Fine-Tuning
+### Session 56 — Fine-Tuning
 
 - SFT
 - Dataset preparation
@@ -668,7 +673,7 @@ Practice:
 - QLoRA
 - Evaluation
 
-### Session 54 — Local Inference
+### Session 57 — Local Inference
 
 - Quantization
 - Ollama
@@ -676,7 +681,7 @@ Practice:
 - GPU fundamentals
 - Serving trade-offs
 
-### Session 55 — API vs Self-Hosted Models
+### Session 58 — API vs Self-Hosted Models
 
 Compare cost, latency, privacy, reliability, and operational complexity.
 
@@ -684,7 +689,7 @@ Compare cost, latency, privacy, reliability, and operational complexity.
 
 ## Phase 12 — Capstone
 
-### Session 56+ — Production AI System
+### Session 59+ — Production AI System
 
 Build one complete production-oriented AI system combining:
 
