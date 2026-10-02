@@ -414,68 +414,136 @@ Build a workflow that safely calls application tools and handles failures.
 
 ## Phase 4 — Embeddings & RAG
 
-### Session 30 — Embeddings
+### Session 30 — Embeddings & Semantic Representation
 
 - Embedding mental model
+- Dense vectors
 - Similarity
 - Cosine similarity
-- Chunking
-- Metadata
+- Embedding model selection
+- Embedding dimensions
+- Chunking strategies
+- Metadata design
+- Text normalization considerations
+- Persian-language embedding considerations
 
 ### Session 31 — Vector Search with PostgreSQL + pgvector
 
 - Vector storage
-- Indexing concepts
+- pgvector data types
 - Similarity queries
-- Retrieval
+- Vector indexes
+- Top-k retrieval
+- Metadata filtering
+- Transactional data + vector data in PostgreSQL
+- Retrieval performance considerations
 
-### Session 32 — RAG Pipeline
+### Session 32 — RAG Ingestion Pipeline
 
 Build:
 
-Ingestion → Chunking → Embedding → Storage → Retrieval → Context → Generation
+Document → Parsing → Cleaning → Chunking → Metadata → Embedding → Vector Storage
 
-### Session 33 — Advanced Retrieval
+Cover:
+- PDF/text ingestion
+- Chunk size and overlap
+- Document/page/source metadata
+- Re-indexing
+- Duplicate detection
+- Incremental ingestion
 
+### Session 33 — RAG Retrieval Pipeline
+
+Build:
+
+Query → Query preprocessing → Retrieval → Context selection → Generation
+
+Cover:
+- Dense retrieval
 - Hybrid search
-- Reranking
 - Metadata filters
+- Query expansion concepts
 - Context compression
 - Retrieval failure modes
+- Source attribution and citations
 
-### Session 34 — RAG Evaluation
+### Session 34 — Reranking & Advanced Retrieval
 
+- Why reranking exists
+- Bi-encoder retrieval vs cross-encoder reranking
+- Reranker pipeline
+- Top-k retrieval → rerank → final context
+- Precision/recall trade-offs
+- Latency/cost trade-offs
+- Failure analysis
+
+### Session 35 — RAG Evaluation with RAGAS
+
+- Evaluation dataset design
+- Golden questions/answers
 - Retrieval quality
-- Answer quality
-- Golden datasets
-- Regression tests
+- Context relevance
+- Faithfulness
+- Answer relevance
+- LLM-as-a-judge basics
+- RAGAS
+- Regression evaluation
+- Thresholds and acceptance criteria
+
+### Session 36 — RAG for Persian & Enterprise Data
+
+- Persian normalization
+- نیم‌فاصله and Unicode normalization
+- Persian tokenization/chunking considerations
+- Persian retrieval quality
+- Metadata for organizational documents
+- Access control / document-level authorization
+- Citation quality
+- Evaluation of Persian answers
+
+Build a small Persian enterprise-document RAG example.
 
 ---
 
 ## Phase 5 — AI Workflows & Agents
 
-### Session 35 — Workflow vs Agent
+### Session 37 — Workflow vs Agent
 
 Understand when deterministic workflows are preferable to autonomous agents.
 
-### Session 36 — LangGraph Fundamentals
+### Session 38 — LangChain Fundamentals
+
+Learn LangChain only after understanding the underlying RAG/tool concepts:
+
+- Runnable concepts
+- Prompt templates
+- Model integrations
+- Retrievers
+- Document abstractions
+- Tools
+- Structured output integration
+- When LangChain helps vs when direct SDK code is simpler
+
+### Session 39 — LangGraph Fundamentals
 
 - State
 - Nodes
 - Edges
 - Conditional routing
+- Checkpointing concepts
 
-### Session 37 — Tool-Using Agents
+### Session 40 — Tool-Using Agents
 
 Build an agent using multiple tools with validation and error handling.
 
-### Session 38 — Memory & Human-in-the-Loop
+### Session 41 — Memory & Human-in-the-Loop
 
 - Short-term state
 - Long-term memory concepts
 - Human approval
+- Tool approval policies
 
-### Session 39 — Agent Reliability
+### Session 42 — Agent Reliability
 
 - Failure recovery
 - Retry
@@ -487,14 +555,14 @@ Build an agent using multiple tools with validation and error handling.
 
 ## Phase 6 — AI Security
 
-### Session 43 — AI Threat Model
+### Session 47 — AI Threat Model
 
 - Prompt injection
 - Indirect prompt injection
 - Data leakage
 - Untrusted model output
 
-### Session 44 — Secure Tool Use
+### Session 48 — Secure Tool Use
 
 - Authorization
 - Least privilege
@@ -506,19 +574,19 @@ Build an agent using multiple tools with validation and error handling.
 
 ## Phase 7 — Production AI Engineering
 
-### Session 45 — Model Routing
+### Session 49 — Model Routing
 
 - Model selection
 - Cost/quality/latency trade-offs
 - Fallback models
 
-### Session 46 — Caching & Rate Limiting
+### Session 50 — Caching & Rate Limiting
 
 - Response caching
 - Semantic caching concepts
 - Rate limits
 
-### Session 47 — Resilience at AI Scale
+### Session 51 — Resilience at AI Scale
 
 - Queues
 - Background jobs
@@ -593,7 +661,7 @@ After the Docker & Docker Compose foundation, add a dedicated orchestration trac
 
 ## Phase 8 — Evaluation, Observability & LLMOps
 
-### Session 48 — AI Observability
+### Session 52 — AI Observability
 
 - Logs
 - Traces
@@ -602,11 +670,11 @@ After the Docker & Docker Compose foundation, add a dedicated orchestration trac
 - Latency
 - Cost
 
-### Session 49 — Langfuse & Tracing
+### Session 53 — Langfuse & Tracing
 
 Implement tracing for LLM calls, RAG and agent workflows.
 
-### Session 50 — AI Evaluation
+### Session 54 — AI Evaluation
 
 - Offline evaluation
 - Online evaluation
@@ -618,11 +686,11 @@ Implement tracing for LLM calls, RAG and agent workflows.
 
 ## Phase 9 — AI System Design
 
-### Session 51 — AI Architecture Patterns
+### Session 55 — AI Architecture Patterns
 
 Design production systems involving models, RAG, tools, queues, caches, and observability.
 
-### Session 52 — System Design Case Studies
+### Session 56 — System Design Case Studies
 
 Practice:
 
@@ -635,7 +703,7 @@ Practice:
 
 ## Phase 10 — ML / DL / Transformer Fundamentals
 
-### Session 53 — Math for AI Engineers
+### Session 57 — Math for AI Engineers
 
 - Probability
 - Statistics
@@ -644,7 +712,7 @@ Practice:
 - Dot product
 - Cosine similarity
 
-### Session 54 — ML Fundamentals
+### Session 58 — ML Fundamentals
 
 - Training vs inference
 - Supervised vs unsupervised
@@ -652,7 +720,7 @@ Practice:
 - Generalization
 - Metrics
 
-### Session 55 — Transformers
+### Session 59 — Transformers
 
 - Tokenization
 - Embeddings
@@ -665,7 +733,7 @@ Practice:
 
 ## Phase 11 — Fine-Tuning & Local LLMs
 
-### Session 56 — Fine-Tuning
+### Session 60 — Fine-Tuning
 
 - SFT
 - Dataset preparation
@@ -673,7 +741,7 @@ Practice:
 - QLoRA
 - Evaluation
 
-### Session 57 — Local Inference
+### Session 61 — Local Inference
 
 - Quantization
 - Ollama
@@ -681,7 +749,7 @@ Practice:
 - GPU fundamentals
 - Serving trade-offs
 
-### Session 58 — API vs Self-Hosted Models
+### Session 62 — API vs Self-Hosted Models
 
 Compare cost, latency, privacy, reliability, and operational complexity.
 
@@ -689,7 +757,7 @@ Compare cost, latency, privacy, reliability, and operational complexity.
 
 ## Phase 12 — Capstone
 
-### Session 59+ — Production AI System
+### Session 63+ — Production AI System
 
 Build one complete production-oriented AI system combining:
 
