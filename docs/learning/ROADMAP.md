@@ -216,6 +216,12 @@ Build systems that retrieve relevant external knowledge before generating answer
 - Citation and source attribution
 - RAG failure modes
 - RAG evaluation
+- RAGAS and evaluation datasets
+- Persian text normalization and retrieval
+- Enterprise document ingestion
+- Document-level authorization in RAG
+- Citation/source attribution
+- Retrieval + reranking pipelines
 
 ## Tool Strategy
 
@@ -243,6 +249,7 @@ Understand when to use deterministic workflows and when an agent is justified.
 - Memory concepts
 - Multi-step workflows
 - LangGraph
+- LangChain fundamentals
 - Parallel execution
 - Conditional routing
 - Human-in-the-loop
@@ -250,6 +257,8 @@ Understand when to use deterministic workflows and when an agent is justified.
 - Failure recovery
 - Retry and timeout policies
 - Agent guardrails
+- Tool authorization policies
+- Agent evaluation
 
 ## Framework Strategy
 
@@ -372,6 +381,9 @@ Measure whether an AI system is actually working and detect regressions.
 - Regression testing
 - Quality metrics
 - RAG evaluation
+- RAGAS
+- Retrieval evaluation
+- Faithfulness / answer relevance
 - Agent evaluation
 - Prompt/version management
 
@@ -415,6 +427,7 @@ Practice designing systems such as:
 - Enterprise AI chatbot
 - Tool-using customer support agent
 - Document intelligence system
+- Persian enterprise RAG
 - AI workflow platform
 
 ## Outcome
