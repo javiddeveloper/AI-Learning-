@@ -29,9 +29,9 @@ LLM Engineering
         ↓
 Structured Outputs & Tool Calling
         ↓
-Embeddings & RAG
+Embeddings, Vector Search & Advanced RAG
         ↓
-Agents & LangGraph
+Agents, LangChain & LangGraph
         ↓
 Production AI Engineering
         ↓
