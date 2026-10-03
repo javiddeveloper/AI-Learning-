@@ -205,7 +205,23 @@ This is only a mental-model comparison; Docker isolation and networking are not 
 
 ## AI Engineering
 
-Not started.
+### LLM Mental Model — Session 22
+
+- An LLM API is an application boundary around model inference: the application sends structured input and receives generated output plus metadata such as token usage.
+- Tokens are the model's processing units; user-visible text is converted to tokens before inference.
+- A context window is the bounded amount of model input/output context available to a request. More conversation history consumes context and must eventually be truncated or compacted.
+- System, developer and user messages serve different instruction roles; application code should deliberately control higher-priority instructions rather than treating all text as equivalent.
+- Temperature is a generation-control parameter affecting output variability; it does not make the model more knowledgeable.
+- LLMs are probabilistic systems and can produce plausible but incorrect output. Application logic must not treat generated text as inherently factual or safe.
+- Model capabilities and limits vary by model/provider; context size, modalities, tool support, latency, rate limits and cost must be considered when selecting a model.
+
+### Direct LLM APIs — Session 23
+
+- Prefer learning direct provider APIs before introducing orchestration frameworks so the underlying request/response lifecycle remains clear.
+- A provider-independent `LLMClient` boundary isolates application/business logic from OpenAI, Anthropic or Gemini-specific SDKs and response formats.
+- Provider adapters should translate provider-specific errors into application-level errors such as rate-limit, timeout, authentication and provider errors.
+- API keys belong in environment/configuration management, not source code or Git history.
+
 
 ## Important Comparisons
 
@@ -262,4 +278,4 @@ pip + requirements.txt is a package installation workflow commonly used by exist
 
 ## Next Learning Target
 
-Session 21 — Phase 1 AI-Ready Backend. Sessions 19 and 20 are completed.
+Session 23 — Direct LLM APIs. Session 22 is completed.
