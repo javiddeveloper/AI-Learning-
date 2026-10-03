@@ -4,10 +4,10 @@
 Phase 1 — Python & FastAPI Backend Foundation
 
 ## Current Topic
-Session 21 — Phase 1 AI-Ready Backend
+Session 23 — Direct LLM APIs
 
 ## Current Status
-NOT_STARTED
+IN_PROGRESS
 
 ## Current Goal
 Build the Python and FastAPI foundation required for production AI engineering.
@@ -88,12 +88,34 @@ Covered:
 Implementation:
 `docs/learning/exercises/session-19-code-quality/`
 
+## Session 22 Result
+
+Session 22 — LLM Mental Model is COMPLETED with confidence 8/10.
+
+Covered:
+- Tokens and tokenization
+- Context windows
+- System/developer/user messages
+- Temperature and generation controls
+- Model capabilities and limitations
+- Hallucination basics
+
+## Session 23 — Current Work
+
+Direct LLM APIs.
+
+Current focus:
+- OpenAI API
+- Anthropic API
+- Gemini API
+- Request/response lifecycle
+- Provider abstraction
+- API error normalization
+- Secure API-key/configuration handling
+
 ## Next Recommended Step
 
-Session 21 — Phase 1 AI-Ready Backend.
-
-Build the final Phase 1 foundation:
-Mobile Client → FastAPI → Authentication → Chat Service → LLM Client boundary → External LLM API boundary.
+Implement the first real provider adapter behind the `LLMClient` boundary and test it with a mock provider.
 
 ## Future Infrastructure Track
 
