@@ -11,7 +11,7 @@
 **Phase 1 — Python & FastAPI Backend Foundation**
 
 ## Current Topic
-**Session 18 — Testing with pytest**
+**Session 23 — Direct LLM APIs**
 
 ## Phase 1 Progress
 | Topic | Status | Confidence | Notes |
@@ -44,12 +44,45 @@
 | Docker Swarm | NOT_STARTED | - | Planned as a comparative orchestration technology. |
 | Advanced Container Orchestration | NOT_STARTED | - | Planned after Kubernetes, Helm and Service Mesh fundamentals. |
 | Production Backend Concepts | NOT_STARTED | - | |
-| AI-Ready Backend | NOT_STARTED | - | |
+| AI-Ready Backend | COMPLETED | 8/10 | Phase 1 foundation reviewed through the AI-ready backend boundary. |
+
+## Phase 2 Progress
+| Topic | Status | Confidence | Notes |
+|---|---|---:|---|
+| LLM Mental Model | COMPLETED | 8/10 | Tokens, tokenization, context windows, message roles, temperature, model limitations and hallucination basics covered. |
+| Direct LLM APIs | IN_PROGRESS | - | OpenAI, Anthropic and Gemini direct integrations; provider abstraction, error normalization and secure API-key handling. |
 
 ## Completion Rule
 A topic is COMPLETED only after explanation in the learner's own words plus a practical implementation reviewed in a session. For non-obvious concepts, code alone is insufficient: the execution model and mental model must also be understood and explained before completion.
 
 ## Session History
+### Session 23 — Direct LLM APIs
+**Status:** IN_PROGRESS
+
+Started Phase 2 with direct provider integrations before introducing orchestration frameworks.
+
+Covered so far:
+- LLM API request/response lifecycle
+- Provider abstraction
+- `LLMClient` as an application boundary
+- Provider-specific error normalization
+- Secure API-key/configuration principles
+
+**Next:** Implement a real provider adapter and test it behind the `LLMClient` boundary.
+
+### Session 22 — LLM Mental Model
+**Status:** COMPLETED
+
+Covered:
+- Tokens and tokenization
+- Context windows
+- System/developer/user messages
+- Temperature and generation controls
+- Model capabilities and limitations
+- Hallucination basics
+
+**Confidence:** 8/10
+
 ### Session 21 — Phase 1 AI-Ready Backend
 **Status:** COMPLETED
 
