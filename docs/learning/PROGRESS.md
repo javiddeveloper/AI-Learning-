@@ -50,7 +50,7 @@
 | Topic | Status | Confidence | Notes |
 |---|---|---:|---|
 | LLM Mental Model | COMPLETED | 8/10 | Tokens, tokenization, context windows, message roles, temperature, model limitations and hallucination basics covered. |
-| Direct LLM APIs | IN_PROGRESS | - | OpenAI, Anthropic and Gemini direct integrations; provider abstraction, error normalization and secure API-key handling. |
+| Direct LLM APIs | IN_PROGRESS | - | Implemented FastAPI `/chat`, `LLMClient` Protocol, `ChatService`, async OpenAI Responses API adapter, normalized provider errors, settings, Mock provider and pytest route tests. Local/live execution and a second provider adapter remain. |
 
 ## Completion Rule
 A topic is COMPLETED only after explanation in the learner's own words plus a practical implementation reviewed in a session. For non-obvious concepts, code alone is insufficient: the execution model and mental model must also be understood and explained before completion.
@@ -61,14 +61,19 @@ A topic is COMPLETED only after explanation in the learner's own words plus a pr
 
 Started Phase 2 with direct provider integrations before introducing orchestration frameworks.
 
-Covered so far:
-- LLM API request/response lifecycle
-- Provider abstraction
-- `LLMClient` as an application boundary
-- Provider-specific error normalization
-- Secure API-key/configuration principles
+Covered and implemented so far:
+- LLM API request/response lifecycle and provider abstraction
+- `LLMClient` Protocol and provider-independent `ChatService`
+- Async `OpenAIClient` using the official SDK and Responses API
+- FastAPI `POST /chat` with Pydantic request/response schemas
+- Provider error normalization, timeout configuration and secure API-key handling
+- `MockLLMClient` plus route tests that do not call the provider
 
-**Next:** Implement a real provider adapter and test it behind the `LLMClient` boundary.
+**Implementation:** `docs/learning/exercises/session-23-direct-llm-apis/`
+
+**Status note:** Files are committed, but local execution and a live API call have not yet been verified. A second provider adapter remains.
+
+**Next:** Run tests/lint locally, verify the live OpenAI request, then add a second provider adapter.
 
 ### Session 22 — LLM Mental Model
 **Status:** COMPLETED
