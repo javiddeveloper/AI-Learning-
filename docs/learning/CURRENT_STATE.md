@@ -102,20 +102,28 @@ Covered:
 
 ## Session 23 — Current Work
 
-Direct LLM APIs.
+Direct LLM APIs — IN_PROGRESS.
 
-Current focus:
-- OpenAI API
-- Anthropic API
-- Gemini API
-- Request/response lifecycle
-- Provider abstraction
-- API error normalization
-- Secure API-key/configuration handling
+Implemented in `docs/learning/exercises/session-23-direct-llm-apis/`:
+- FastAPI `POST /chat` with Pydantic request/response models
+- `LLMClient` Protocol and `ChatService` boundary
+- Async `OpenAIClient` using the official SDK and Responses API
+- Provider-level error normalization and finite timeout
+- Environment-based settings with `pydantic-settings`
+- `MockLLMClient` and pytest route tests that do not call the real provider
+- FastAPI dependency overrides wired through `Depends`
+
+Not yet verified in a live runtime during this session; no real API key or provider call was used.
+
+Remaining for Session 23:
+- Run `uv sync`, Ruff and pytest in a local runtime
+- Verify a real OpenAI request with a valid API key
+- Add/compare another provider adapter (Gemini or Anthropic)
+- Review lifecycle cleanup, provider errors, and production readiness
 
 ## Next Recommended Step
 
-Implement the first real provider adapter behind the `LLMClient` boundary and test it with a mock provider.
+Run the exercise locally, fix any runtime/type/lint issues, and verify the live OpenAI path before adding a second provider.
 
 ## Future Infrastructure Track
 
