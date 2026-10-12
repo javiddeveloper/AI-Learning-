@@ -1,5 +1,6 @@
 from functools import lru_cache
-from typing import cast
+
+from fastapi import Depends
 
 from app.config import get_settings
 from app.llm.client import LLMClient
@@ -13,5 +14,7 @@ def get_llm_client() -> LLMClient:
     return OpenAIClient(settings)
 
 
-def get_chat_service() -> ChatService:
-    return ChatService(llm=cast(LLMClient, get_llm_client()))
+def get_chat_service(
+    llm: LLMClient = Depends(get_llm_client),
+) -> ChatService:
+    return ChatService(llm=llm)
