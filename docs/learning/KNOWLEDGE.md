@@ -218,9 +218,15 @@ This is only a mental-model comparison; Docker isolation and networking are not 
 ### Direct LLM APIs — Session 23
 
 - Prefer learning direct provider APIs before introducing orchestration frameworks so the underlying request/response lifecycle remains clear.
-- A provider-independent `LLMClient` boundary isolates application/business logic from OpenAI, Anthropic or Gemini-specific SDKs and response formats.
-- Provider adapters should translate provider-specific errors into application-level errors such as rate-limit, timeout, authentication and provider errors.
-- API keys belong in environment/configuration management, not source code or Git history.
+- A provider-independent `LLMClient` Protocol isolates application/business logic from OpenAI, Anthropic or Gemini-specific SDKs and response formats. Structural typing means an adapter does not have to explicitly inherit from the Protocol if it provides the required methods.
+- `ChatService` depends on `LLMClient`, not on a concrete provider. Dependency Injection selects the adapter at the application composition boundary; changing the adapter should not require changing the service.
+- The official OpenAI Python SDK supports async calls through `AsyncOpenAI`; the current exercise uses `responses.create(...)` and reads `response.output_text`.
+- Provider adapters should translate provider-specific exceptions into application-level errors such as rate-limit, timeout, authentication and provider errors. Do not leak raw provider exception details to HTTP clients.
+- FastAPI dependency overrides allow route tests to replace the provider with a deterministic fake without network access or token cost.
+- API keys belong in environment/configuration management, not source code or Git history. A model name should be configurable because model availability can differ by account and change over time.
+- A timeout is essential for outbound model calls. Retry policy must be deliberate; authentication and invalid-request errors should not be retried as if they were transient failures.
+
+Implementation: `docs/learning/exercises/session-23-direct-llm-apis/`.
 
 
 ## Important Comparisons
