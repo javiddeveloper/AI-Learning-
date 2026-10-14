@@ -4,13 +4,23 @@
 Phase 1 — Python & FastAPI Backend Foundation
 
 ## Current Topic
-Session 23 — Direct LLM APIs
+Session 25 — Prompt Engineering
 
 ## Current Status
 IN_PROGRESS
 
 ## Current Goal
 Build the Python and FastAPI foundation required for production AI engineering.
+
+## Session 25 — Current Work
+Prompt Engineering — IN_PROGRESS.
+
+Created `docs/learning/exercises/session-25-prompt-engineering/` with versioned prompt templates and pytest tests. Local test execution and implementation review remain pending.
+
+## Session 24 — Previous Work
+Streaming & Conversation State — IN_PROGRESS.
+
+Exercise files exist at `docs/learning/exercises/session-24-streaming-conversation-state/`; runtime verification and final review remain pending.
 
 ## Session 18 Result
 Session 18 — Testing with pytest is COMPLETED with confidence 8/10.
