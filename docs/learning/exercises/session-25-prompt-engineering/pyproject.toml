@@ -1,0 +1,15 @@
+[project]
+name = "session-25-prompt-engineering"
+version = "0.1.0"
+description = "Hands-on prompt engineering exercise for AI Engineering learning"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
