@@ -56,6 +56,20 @@
 A topic is COMPLETED only after explanation in the learner's own words plus a practical implementation reviewed in a session. For non-obvious concepts, code alone is insufficient: the execution model and mental model must also be understood and explained before completion.
 
 ## Session History
+### Session 25 — Prompt Engineering
+**Status:** IN_PROGRESS
+
+Created the exercise package at `docs/learning/exercises/session-25-prompt-engineering/` with versioned prompt templates, user-input delimiting, and deterministic pytest coverage. The tests have not yet been executed in a local runtime, and few-shot examples plus an LLM-level prompt evaluation are still outstanding.
+
+**Next:** Run `uv sync` and `uv run pytest`, review the implementation, then add few-shot examples and an evaluation approach.
+
+### Session 24 — Streaming & Conversation State
+**Status:** IN_PROGRESS
+
+Exercise files were created at `docs/learning/exercises/session-24-streaming-conversation-state/` for StreamingResponse/SSE, conversation state, truncation and tests. Runtime verification and a complete review have not been confirmed.
+
+**Next:** Run the exercise tests and review streaming lifecycle, conversation isolation, cancellation, and context-budget behavior.
+
 ### Session 23 — Direct LLM APIs
 **Status:** IN_PROGRESS
 
