@@ -1,6 +1,10 @@
 """Deterministic helpers for LLM usage, cost, latency, and retry policy."""
 
+from collections.abc import Callable
 from dataclasses import dataclass
+from typing import TypeVar
+
+T = TypeVar("T")
 
 
 @dataclass(frozen=True)
@@ -38,6 +42,16 @@ def ensure_within_cost_limit(estimated_cost: float, max_cost: float) -> None:
         raise ValueError("max_cost cannot be negative")
     if estimated_cost > max_cost:
         raise ValueError("Estimated request cost exceeds the configured maximum")
+
+
+def run_with_cost_guard(
+    estimated_cost: float,
+    max_cost: float,
+    provider_call: Callable[[], T],
+) -> T:
+    """Run the provider only after the estimated cost passes the request budget."""
+    ensure_within_cost_limit(estimated_cost, max_cost)
+    return provider_call()
 
 
 def latency_ms(started_at: float, finished_at: float) -> float:
