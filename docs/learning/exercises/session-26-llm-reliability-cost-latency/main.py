@@ -30,6 +30,16 @@ def calculate_cost(usage: TokenUsage, pricing: ModelPricing) -> float:
     return input_cost + output_cost
 
 
+def ensure_within_cost_limit(estimated_cost: float, max_cost: float) -> None:
+    """Reject a request before provider invocation when its estimated cost is too high."""
+    if estimated_cost < 0:
+        raise ValueError("estimated_cost cannot be negative")
+    if max_cost < 0:
+        raise ValueError("max_cost cannot be negative")
+    if estimated_cost > max_cost:
+        raise ValueError("Estimated request cost exceeds the configured maximum")
+
+
 def latency_ms(started_at: float, finished_at: float) -> float:
     """Convert monotonic timer readings to elapsed milliseconds."""
     if finished_at < started_at:
