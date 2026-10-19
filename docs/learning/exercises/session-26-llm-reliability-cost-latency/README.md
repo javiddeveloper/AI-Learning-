@@ -2,30 +2,30 @@
 
 ## Goal
 
-Practice deterministic building blocks for monitoring LLM token usage, estimating cost, measuring elapsed time, and choosing when a provider error is retryable.
+Practice deterministic building blocks for monitoring LLM token usage, estimating cost, measuring elapsed time, classifying retryable HTTP statuses, and enforcing a per-request cost guard before a provider call.
 
 ## Files
 
-- `main.py`: small, provider-independent helper functions and validated data classes.
-- `test_main.py`: unit tests for valid inputs, invalid inputs, retryable statuses, and backoff.
+- `main.py`: provider-independent helpers and validated data classes.
+- `test_main.py`: tests for valid/invalid inputs, cost limits, retryable statuses, and backoff.
 
 ## Run
 
-From this directory, with pytest available in the project environment:
+From this directory, with project dependencies installed:
 
 ```bash
 uv run pytest -q
 ```
 
-## Important production gaps to discuss
+## Production considerations
 
-This exercise is deliberately small and does not make provider calls. Before production use, consider:
+- Provider-specific usage and pricing can include cached tokens, reasoning tokens, and tool charges.
+- Pre-call cost is an estimate: reserve against a conservative maximum output-token budget, then reconcile against actual usage after the response.
+- The cost guard must run before invoking the provider; it should not be treated as a billing guarantee.
+- Retries need a bounded count, exponential backoff with jitter, an overall deadline, and `Retry-After` handling.
+- Distinguish connection failures, timeouts, and HTTP status errors.
+- Log provider/model, token usage, latency, and estimated cost without logging sensitive prompts.
+- Measure streaming time-to-first-token (TTFT) separately from total latency.
+- A retry may increase cost and latency; ensure it fits the request budget and deadline.
 
-- Provider-specific usage fields and price updates, including cached tokens or tool charges.
-- A bounded retry count, exponential backoff with jitter, an overall deadline, and `Retry-After` handling.
-- Distinguishing connection failures, timeouts, and HTTP status errors.
-- Logging token usage, model/provider, latency, and estimated cost without logging sensitive prompts.
-- Tracking streaming time-to-first-token separately from total latency.
-- Testing fallback behavior and preventing retries from multiplying cost or exceeding request deadlines.
-
-The retry classifier is a starting policy, not a complete provider SDK error handler.
+The retry classifier is a minimal policy, not a complete provider SDK error handler. The exercise uses no real provider calls.
