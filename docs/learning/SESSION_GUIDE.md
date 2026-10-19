@@ -394,9 +394,14 @@ Teach:
 
 - JSON Schema
 - Pydantic structured outputs
-- Validation
-- Parsing failures
-- Schema evolution
+- Strict typing and allowed values
+- Runtime validation vs provider-side constrained generation
+- Parsing and validation failures
+- Normalized application errors
+- Schema evolution and backward compatibility
+- Validated data boundary before business logic
+
+Exercise: `docs/learning/exercises/session-27-structured-outputs/`. Use a Mock/no provider API key. Cover valid JSON, malformed JSON, missing/extra fields, invalid values/types, and controlled failure behavior.
 
 ### Session 28 — Function & Tool Calling
 
