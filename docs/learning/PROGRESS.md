@@ -51,7 +51,7 @@
 |---|---|---:|---|
 | LLM Mental Model | COMPLETED | 8/10 | Tokens, tokenization, context windows, message roles, temperature, model limitations and hallucination basics covered. |
 | Direct LLM APIs | IN_PROGRESS | - | Implemented FastAPI `/chat`, `LLMClient` Protocol, `ChatService`, async OpenAI Responses API adapter, normalized provider errors, settings, Mock provider and pytest route tests. Local/live execution and a second provider adapter remain. |
-| LLM Reliability, Cost & Latency | COMPLETED | 8/10 | Added a per-request cost guard before provider invocation, cost/latency/retry helpers, and failure-path tests. Test suite: 22 passed in isolated verification. Provider-specific integration remains future work. |
+| LLM Reliability, Cost & Latency | COMPLETED | 8/10 | Added a per-request cost guard before provider invocation, cost/latency/retry helpers, and failure-path tests. Test suite: 23 passed in isolated verification. Provider-specific integration remains future work. |
 | Structured Outputs & Pydantic | PRACTICING | 8/10 | Implemented strict Pydantic schema, JSON parsing boundary, normalized validation error, and tests for valid/invalid/missing/extra fields. Test suite: 11 passed in isolated verification. Awaiting learner explanation of the validation boundary before marking the learning topic completed. |
 
 ## Completion Rule
@@ -81,7 +81,7 @@ Implemented:
 
 Added a per-request cost guard and tests ensuring an over-budget request is rejected before provider invocation. Existing helpers cover token cost, elapsed latency, retryable status classification, and exponential backoff.
 
-**Verification:** 22 tests passed in isolated verification using pytest.
+**Verification:** 23 tests passed in isolated verification using pytest.
 
 **Production gaps:** Provider integration, Retry-After, jitter, bounded retries/deadlines, actual TTFT instrumentation, and provider-specific usage/pricing remain beyond this deterministic exercise.
 
