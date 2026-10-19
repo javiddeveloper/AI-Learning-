@@ -4,6 +4,7 @@ from main import (
     ModelPricing,
     TokenUsage,
     calculate_cost,
+    ensure_within_cost_limit,
     exponential_backoff_seconds,
     latency_ms,
     should_retry_status,
@@ -25,6 +26,36 @@ def test_negative_token_counts_are_rejected(input_tokens: int, output_tokens: in
 def test_negative_pricing_is_rejected() -> None:
     with pytest.raises(ValueError):
         ModelPricing(input_per_million=-1, output_per_million=0)
+
+
+def test_cost_limit_allows_cost_at_limit() -> None:
+    ensure_within_cost_limit(estimated_cost=0.01, max_cost=0.01)
+
+
+def test_cost_limit_rejects_expensive_request() -> None:
+    with pytest.raises(ValueError, match="exceeds"):
+        ensure_within_cost_limit(estimated_cost=0.02, max_cost=0.01)
+
+
+def test_invalid_cost_limit_inputs_are_rejected() -> None:
+    with pytest.raises(ValueError):
+        ensure_within_cost_limit(estimated_cost=-0.01, max_cost=1.0)
+    with pytest.raises(ValueError):
+        ensure_within_cost_limit(estimated_cost=0.01, max_cost=-1.0)
+
+
+def test_cost_guard_runs_before_provider_call() -> None:
+    provider_calls = 0
+
+    def provider_call() -> str:
+        nonlocal provider_calls
+        provider_calls += 1
+        return "response"
+
+    with pytest.raises(ValueError, match="exceeds"):
+        ensure_within_cost_limit(estimated_cost=0.05, max_cost=0.01)
+
+    assert provider_calls == 0
 
 
 def test_latency_in_milliseconds() -> None:
