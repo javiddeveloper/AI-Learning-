@@ -285,3 +285,22 @@ pip + requirements.txt is a package installation workflow commonly used by exist
 ## Next Learning Target
 
 Session 23 — Direct LLM APIs. Session 22 is completed.
+
+
+### LLM Reliability, Cost & Latency — Session 26
+
+- Estimated request cost can be computed from input/output token counts and provider pricing, but estimates must account for model-specific usage categories and pricing changes.
+- A per-request cost guard must execute before calling the provider. If estimated cost exceeds the configured budget, reject early to avoid unnecessary spend.
+- Measure elapsed durations with a monotonic clock; wall-clock time can jump due to clock adjustments.
+- Streaming TTFT (time to first token) is different from total response latency. Both should be measured because they describe different user experiences.
+- Retry only transient failures, and bound retries by attempt count and an overall deadline. Exponential backoff alone is incomplete without jitter and provider `Retry-After` handling.
+- Retries can multiply cost and latency; include retry behavior in request-budget and deadline design.
+
+### Structured Outputs & Pydantic — Session 27
+
+- LLM output is untrusted input even when it appears to be valid JSON. Parse and validate it at the application boundary before business logic consumes it.
+- Pydantic `BaseModel` defines the expected data contract; `Literal` restricts allowed values, `Field(ge=..., le=...)` constrains numeric ranges, `strict=True` prevents unwanted coercion, and `extra="forbid"` rejects unexpected fields.
+- `model_validate_json` parses raw JSON and validates the resulting object in one operation.
+- Normalize Pydantic `ValidationError` into an application-level error so callers can implement bounded repair/retry or controlled fallback without coupling business logic to Pydantic internals.
+- Provider-side Structured Outputs constrains generation according to a schema when supported; local validation remains useful as defense in depth and does not establish factual correctness, authorization, or business-rule validity.
+- Only validated, typed values should cross into business logic. Validation failure must take a controlled error path.
