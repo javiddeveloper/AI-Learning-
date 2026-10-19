@@ -11,7 +11,7 @@
 **Phase 1 — Python & FastAPI Backend Foundation**
 
 ## Current Topic
-**Session 23 — Direct LLM APIs**
+**Session 27 — Structured Outputs & Pydantic Validation**
 
 ## Phase 1 Progress
 | Topic | Status | Confidence | Notes |
@@ -51,11 +51,40 @@
 |---|---|---:|---|
 | LLM Mental Model | COMPLETED | 8/10 | Tokens, tokenization, context windows, message roles, temperature, model limitations and hallucination basics covered. |
 | Direct LLM APIs | IN_PROGRESS | - | Implemented FastAPI `/chat`, `LLMClient` Protocol, `ChatService`, async OpenAI Responses API adapter, normalized provider errors, settings, Mock provider and pytest route tests. Local/live execution and a second provider adapter remain. |
+| LLM Reliability, Cost & Latency | COMPLETED | 8/10 | Added a per-request cost guard before provider invocation, cost/latency/retry helpers, and failure-path tests. Test suite: 22 passed in isolated verification. Provider-specific integration remains future work. |
+| Structured Outputs & Pydantic | PRACTICING | 8/10 | Implemented strict Pydantic schema, JSON parsing boundary, normalized validation error, and tests for valid/invalid/missing/extra fields. Test suite: 11 passed in isolated verification. Awaiting learner explanation of the validation boundary before marking the learning topic completed. |
 
 ## Completion Rule
 A topic is COMPLETED only after explanation in the learner's own words plus a practical implementation reviewed in a session. For non-obvious concepts, code alone is insufficient: the execution model and mental model must also be understood and explained before completion.
 
 ## Session History
+### Session 27 — Structured Outputs & Pydantic Validation
+**Status:** PRACTICING (implementation completed; concept checkpoint pending)
+
+**Implementation:** `docs/learning/exercises/session-27-structured-outputs/`
+
+Implemented:
+- Strict Pydantic v2 model with `Literal`, `Field(ge=1, le=3)`, `strict=True`, and `extra="forbid"`
+- JSON parsing and validation with `model_validate_json`
+- Normalized `InvalidModelOutputError` boundary
+- Business logic receives only validated data
+- Tests for valid output, invalid range/type/category, missing/extra fields, malformed JSON, and boundary behavior
+
+**Verification:** 11 tests passed in isolated verification using Pydantic 2.13.5 and pytest 9.0.2.
+
+**Remaining learning checkpoint:** Explain why schema validation is necessary even with provider Structured Outputs, and why invalid output must not enter business logic. After that, mark the topic COMPLETED.
+
+### Session 26 — LLM Reliability, Cost & Latency
+**Status:** COMPLETED — confidence 8/10
+
+**Implementation:** `docs/learning/exercises/session-26-llm-reliability-cost-latency/`
+
+Added a per-request cost guard and tests ensuring an over-budget request is rejected before provider invocation. Existing helpers cover token cost, elapsed latency, retryable status classification, and exponential backoff.
+
+**Verification:** 22 tests passed in isolated verification using pytest.
+
+**Production gaps:** Provider integration, Retry-After, jitter, bounded retries/deadlines, actual TTFT instrumentation, and provider-specific usage/pricing remain beyond this deterministic exercise.
+
 ### Session 25 — Prompt Engineering
 **Status:** IN_PROGRESS
 
