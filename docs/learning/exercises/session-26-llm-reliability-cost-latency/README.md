@@ -7,7 +7,7 @@ Practice deterministic building blocks for monitoring LLM token usage, estimatin
 ## Files
 
 - `main.py`: provider-independent helpers and validated data classes.
-- `test_main.py`: tests for valid/invalid inputs, cost limits, retryable statuses, and backoff.
+- `test_main.py`: tests for valid/invalid inputs, cost limits, provider-call gating, retryable statuses, and backoff.
 
 ## Run
 
@@ -21,7 +21,8 @@ uv run pytest -q
 
 - Provider-specific usage and pricing can include cached tokens, reasoning tokens, and tool charges.
 - Pre-call cost is an estimate: reserve against a conservative maximum output-token budget, then reconcile against actual usage after the response.
-- The cost guard must run before invoking the provider; it should not be treated as a billing guarantee.
+- The `run_with_cost_guard` wrapper verifies the budget before invoking the provider callback.
+- The cost guard is not a billing guarantee; the actual token count and provider price may differ from estimates.
 - Retries need a bounded count, exponential backoff with jitter, an overall deadline, and `Retry-After` handling.
 - Distinguish connection failures, timeouts, and HTTP status errors.
 - Log provider/model, token usage, latency, and estimated cost without logging sensitive prompts.
