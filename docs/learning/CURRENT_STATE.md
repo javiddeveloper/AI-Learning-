@@ -35,7 +35,7 @@ LLM Reliability, Cost & Latency — COMPLETED, confidence 8/10.
 
 Implementation: `docs/learning/exercises/session-26-llm-reliability-cost-latency/`
 
-Added a pre-call per-request cost guard plus tests for rejected over-budget requests. Existing helpers cover token cost, latency, retryable status classification, and exponential backoff. Verification: 22 tests passed in isolated verification.
+Added a pre-call per-request cost guard plus tests for rejected over-budget requests. Existing helpers cover token cost, latency, retryable status classification, and exponential backoff. Verification: 23 tests passed in isolated verification.
 
 Production gaps retained for later provider integration: actual TTFT instrumentation, provider-specific usage/pricing, Retry-After, jitter, bounded retries and end-to-end deadlines.
 
