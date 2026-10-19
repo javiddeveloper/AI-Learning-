@@ -4,13 +4,40 @@
 Phase 1 — Python & FastAPI Backend Foundation
 
 ## Current Topic
-Session 25 — Prompt Engineering
+Session 27 — Structured Outputs & Pydantic Validation
 
 ## Current Status
-IN_PROGRESS
+PRACTICING — implementation and tests completed; learner explanation checkpoint remains
 
 ## Current Goal
-Build the Python and FastAPI foundation required for production AI engineering.
+Build reliable, production-oriented LLM integrations and validate model output before application logic.
+
+## Session 27 — Current Work
+
+Structured Outputs & Pydantic Validation — PRACTICING.
+
+Implementation:
+`docs/learning/exercises/session-27-structured-outputs/`
+
+- Strict Pydantic v2 schema with category allow-list, priority range, strict types, and forbidden extra fields
+- `model_validate_json` parsing boundary
+- Normalized validation exception
+- Business logic only receives validated values
+- Tests cover valid output, malformed JSON, invalid category/range/type, missing/extra fields, and failure propagation
+
+Verification: 11 tests passed in isolated verification.
+
+Next checkpoint: Explain why output validation remains necessary even when using provider-side Structured Outputs, and why invalid output must never enter business logic. Then mark Session 27 COMPLETED.
+
+## Session 26 — Result
+
+LLM Reliability, Cost & Latency — COMPLETED, confidence 8/10.
+
+Implementation: `docs/learning/exercises/session-26-llm-reliability-cost-latency/`
+
+Added a pre-call per-request cost guard plus tests for rejected over-budget requests. Existing helpers cover token cost, latency, retryable status classification, and exponential backoff. Verification: 22 tests passed in isolated verification.
+
+Production gaps retained for later provider integration: actual TTFT instrumentation, provider-specific usage/pricing, Retry-After, jitter, bounded retries and end-to-end deadlines.
 
 ## Session 25 — Current Work
 Prompt Engineering — IN_PROGRESS.
@@ -133,7 +160,7 @@ Remaining for Session 23:
 
 ## Next Recommended Step
 
-Run the exercise locally, fix any runtime/type/lint issues, and verify the live OpenAI path before adding a second provider.
+Finish the Session 27 concept checkpoint in your own words. Then continue to Session 28 — Function & Tool Calling.
 
 ## Future Infrastructure Track
 
