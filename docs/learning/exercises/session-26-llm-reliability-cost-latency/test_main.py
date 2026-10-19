@@ -7,6 +7,7 @@ from main import (
     ensure_within_cost_limit,
     exponential_backoff_seconds,
     latency_ms,
+    run_with_cost_guard,
     should_retry_status,
 )
 
@@ -44,7 +45,7 @@ def test_invalid_cost_limit_inputs_are_rejected() -> None:
         ensure_within_cost_limit(estimated_cost=0.01, max_cost=-1.0)
 
 
-def test_cost_guard_runs_before_provider_call() -> None:
+def test_cost_guard_prevents_provider_call_when_over_budget() -> None:
     provider_calls = 0
 
     def provider_call() -> str:
@@ -53,9 +54,23 @@ def test_cost_guard_runs_before_provider_call() -> None:
         return "response"
 
     with pytest.raises(ValueError, match="exceeds"):
-        ensure_within_cost_limit(estimated_cost=0.05, max_cost=0.01)
+        run_with_cost_guard(estimated_cost=0.05, max_cost=0.01, provider_call=provider_call)
 
     assert provider_calls == 0
+
+
+def test_cost_guard_calls_provider_when_within_budget() -> None:
+    provider_calls = 0
+
+    def provider_call() -> str:
+        nonlocal provider_calls
+        provider_calls += 1
+        return "response"
+
+    result = run_with_cost_guard(estimated_cost=0.005, max_cost=0.01, provider_call=provider_call)
+
+    assert result == "response"
+    assert provider_calls == 1
 
 
 def test_latency_in_milliseconds() -> None:
