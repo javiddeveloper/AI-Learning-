@@ -12,7 +12,7 @@ PRACTICING — exercise and tests authored; local execution and learner review r
 ## Current Goal
 Build a reliable document-ingestion pipeline that prepares source documents for semantic retrieval.
 
-## Session 27 — Current Work
+## Session 27 — Historical Work
 
 Structured Outputs & Pydantic Validation — PRACTICING.
 
@@ -78,16 +78,8 @@ Dependencies
 Response
 ```
 
-## Next Recommended Step
-Session 19 — Code Quality
-
-Focus on:
-- Ruff
-- Pyright
-- Formatting
-- Linting
-- Pre-commit
-- CI-oriented quality checks
+## Historical Next-Step Note
+The earlier Session 19 recommendation is obsolete; current work is Session 32.
 
 
 ## Session 20 Result
