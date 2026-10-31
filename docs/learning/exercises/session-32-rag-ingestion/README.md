@@ -37,6 +37,12 @@ uv run pytest
 7. Use OCR for scanned PDFs, and evaluate Persian normalization carefully.
 8. The mock embedding provider is only for deterministic tests; it is not semantically meaningful.
 
+## Tests
+
+The suite contains 14 tests across `test_parser.py`, `test_cleaner.py`, `test_chunker.py`, `test_metadata.py` and `test_pipeline.py`.
+
+Run them with `uv run pytest`. They have been authored but are not yet runtime-verified.
+
 ## Learner verification
 
 Run the tests, inspect chunk boundaries and overlap, then explain:
