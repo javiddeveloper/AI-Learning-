@@ -1,16 +1,16 @@
 # Current Learning State
 
 ## Current Phase
-Phase 1 — Python & FastAPI Backend Foundation
+Phase 4 — Embeddings, Vector Search & RAG
 
 ## Current Topic
-Session 27 — Structured Outputs & Pydantic Validation
+Session 32 — RAG Ingestion Pipeline
 
 ## Current Status
-PRACTICING — implementation and tests completed; learner explanation checkpoint remains
+PRACTICING — exercise and tests authored; local execution and learner review remain
 
 ## Current Goal
-Build reliable, production-oriented LLM integrations and validate model output before application logic.
+Build a reliable document-ingestion pipeline that prepares source documents for semantic retrieval.
 
 ## Session 27 — Current Work
 
@@ -173,3 +173,26 @@ The Production AI Engineering phase will include a dedicated container-orchestra
 - Advanced container orchestration
 
 These topics will come after Docker/Docker Compose fundamentals and will be treated as production infrastructure knowledge rather than generic DevOps study.
+
+
+## Session 32 — RAG Ingestion Pipeline
+
+Status: PRACTICING.
+
+Implementation: `docs/learning/exercises/session-32-rag-ingestion/`
+
+Implemented the exercise package with TXT/PDF parsing, page-aware extraction, conservative text cleaning, overlapping word-based chunking, metadata generation, SHA-256 content hashing, an async embedding provider contract, deterministic mock embeddings, ingestion orchestration, PostgreSQL/pgvector schema, and pytest tests.
+
+Test suite authored: 14 tests across cleaner, parser, chunker, metadata and pipeline. Runtime execution is not yet verified; do not report these tests as passing until run locally.
+
+Important limitations: chunk size is measured in whitespace-separated words, not model tokens; scanned PDF OCR is out of scope; mock vectors are not semantically meaningful; actual database persistence and production provider integration remain future implementation work.
+
+Next actions:
+1. Run `uv sync` and `uv run pytest`.
+2. Run `uv run ruff check .` and `uv run pyright`.
+3. Review test results and fix issues.
+4. Explain chunk overlap, content-hash idempotency and source metadata.
+
+## Next Recommended Step
+
+Session 33 — Retrieval & Semantic Search.
