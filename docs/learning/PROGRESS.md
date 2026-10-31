@@ -8,10 +8,10 @@
 - COMPLETED
 
 ## Current Phase
-**Phase 1 — Python & FastAPI Backend Foundation**
+**Phase 4 — Embeddings, Vector Search & RAG**
 
 ## Current Topic
-**Session 27 — Structured Outputs & Pydantic Validation**
+**Session 32 — RAG Ingestion Pipeline**
 
 ## Phase 1 Progress
 | Topic | Status | Confidence | Notes |
@@ -222,3 +222,25 @@ Reviewed FastAPI application setup, path operations and routing, HTTP methods, p
 **Confidence:** 9/10
 
 **Next:** Session 11 — Pydantic with FastAPI.
+
+
+### Session 32 — RAG Ingestion Pipeline
+**Status:** PRACTICING — implementation and tests authored; local execution and learner review pending
+
+**Implementation:** `docs/learning/exercises/session-32-rag-ingestion/`
+
+Implemented:
+- TXT and text-based PDF parsing with page numbers
+- Conservative Unicode normalization and whitespace cleanup
+- Overlapping word-window chunking with configuration validation
+- Stable chunk metadata and content SHA-256
+- Async EmbeddingProvider Protocol and deterministic mock provider
+- Ingestion orchestration and unchanged-file skip behavior
+- PostgreSQL + pgvector schema example
+- 14 pytest cases covering cleaning, parsing, chunking, metadata and pipeline behavior
+
+**Verification:** Tests have been authored but have not yet been executed in a local runtime. Do not treat the test suite as passing until `uv sync` and `uv run pytest` are run.
+
+**Remaining:** Run tests, Ruff and Pyright; review chunk boundaries, PDF extraction and failure behavior; then explain chunk size/overlap and ingestion idempotency in your own words.
+
+**Next:** Session 33 — Retrieval & Semantic Search.
