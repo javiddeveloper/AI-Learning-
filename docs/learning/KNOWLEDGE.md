@@ -304,3 +304,17 @@ Session 23 — Direct LLM APIs. Session 22 is completed.
 - Normalize Pydantic `ValidationError` into an application-level error so callers can implement bounded repair/retry or controlled fallback without coupling business logic to Pydantic internals.
 - Provider-side Structured Outputs constrains generation according to a schema when supported; local validation remains useful as defense in depth and does not establish factual correctness, authorization, or business-rule validity.
 - Only validated, typed values should cross into business logic. Validation failure must take a controlled error path.
+
+
+### RAG Ingestion Pipeline — Session 32
+
+- Ingestion transforms source documents into retrievable knowledge: parsing → cleaning → chunking → metadata → embeddings → vector storage.
+- Preserve page/source information during parsing so retrieved chunks can be attributed to their original document and page.
+- Text cleaning should be conservative. Persian normalization must be tested against real documents; aggressive character replacement can alter meaning and legal wording.
+- Chunking creates focused retrieval units. Chunk size should ultimately be measured with the tokenizer used by the embedding model, not whitespace word count.
+- Overlap preserves context across chunk boundaries but increases embedding tokens, storage and the likelihood of near-duplicate retrieval results.
+- Metadata supports filtering, provenance and versioning, but metadata alone is not authorization. Tenant/document access constraints must be enforced in the retrieval query and application policy.
+- SHA-256 of raw file bytes can identify unchanged uploads. A robust re-index workflow should stage a new document version and switch the active version only after successful processing.
+- Embedding providers should be abstracted behind an async contract. Mock embeddings are useful for deterministic pipeline tests but must never be mistaken for semantic vectors.
+- Scanned PDFs require OCR; text extraction libraries alone do not recover text from image-only pages.
+- Production ingestion needs bounded batches, provider timeouts/rate limits, retry policy, durable job status, observability and failure-safe version switching.
