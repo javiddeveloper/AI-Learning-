@@ -14,7 +14,7 @@ class VectorStore(Protocol):
         self,
         *,
         query_vector: Sequence[float],
-        company_id: str,
+        tenant_id: str,
         top_k: int,
     ) -> list[RetrievedChunk]:
         """Search only within the authorized tenant and return nearest chunks first."""
@@ -33,11 +33,11 @@ class RetrievalService:
         self,
         *,
         query: str,
-        company_id: str,
+        tenant_id: str,
         top_k: int = 5,
     ) -> list[RetrievedChunk]:
         if not company_id.strip():
-            raise ValueError("company_id must not be empty")
+            raise ValueError("tenant_id must not be empty")
         if top_k < 1:
             raise ValueError("top_k must be greater than zero")
 
@@ -48,6 +48,6 @@ class RetrievalService:
 
         return await self._vector_store.search(
             query_vector=query_vector,
-            company_id=company_id,
+            tenant_id=tenant_id,
             top_k=top_k,
         )
