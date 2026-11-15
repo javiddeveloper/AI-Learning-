@@ -64,7 +64,7 @@ class PgVectorStore:
                     chunk_id=str(row["chunk_id"]),
                     document_id=str(row["document_id"]),
                     content=str(row["content"]),
-                    company_id=str(row["tenant_id"]),
+                    tenant_id=str(row["tenant_id"]),
                     source=str(source),
                     page=row["page"],
                     distance=float(row["distance"]),
