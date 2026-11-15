@@ -19,13 +19,12 @@ This exercise uses PostgreSQL + pgvector as the production adapter and fake depe
 
 ## Database assumptions
 
-The SQL adapter assumes a `document_chunks` table with:
+The SQL adapter matches the Session 32 schema:
 
-- `chunk_id`
-- `document_id`
-- `content`
-- `metadata JSONB` containing `company_id`, `source`, and optional `page`
-- `embedding vector(N)`
+- `document_chunks.id`, `document_id`, `tenant_id`, `page_number`, `content`, `embedding vector(N)`, `metadata JSONB`
+- `documents.id`, `source_name`
+
+It joins `documents` to recover the source filename and filters by `document_chunks.tenant_id`.
 
 The vector dimension and embedding model must be identical/compatible with the ingestion pipeline. The pgvector extension must be enabled.
 
