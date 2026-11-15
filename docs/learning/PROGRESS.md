@@ -258,10 +258,10 @@ Implemented:
 - Async PostgreSQL + pgvector cosine-distance adapter
 - Tenant filtering inside the SQL query
 - Bounded context assembly with source/page citations
-- Unit tests for query normalization, empty results, Top-K, tenant propagation, context budget, duplicate chunks and citation preservation
+- 12 authored test cases covering query normalization, empty results, Top-K, tenant validation/propagation, context budget, duplicate chunks and citation preservation
 
 **Verification:** Tests have been authored but have not been executed in a local runtime. Do not report them as passing until `uv sync --extra dev`, `uv run pytest`, `uv run ruff check .`, and `uv run pyright` are run.
 
-**Remaining:** Verify the assumed database column names and metadata schema against Session 32; run quality checks; review the SQL adapter and test failures; explain dense retrieval, tenant filtering and context selection.
+**Schema alignment:** The SQL adapter was checked against Session 32 `schema.sql`: it joins `documents` for `source_name`, reads `document_chunks.id` and `page_number`, and filters on `tenant_id`.
 
 **Scope note:** Hybrid search, query expansion, reranking and model-based compression remain follow-up topics; this implementation establishes a dense-retrieval baseline.
