@@ -9,7 +9,7 @@ class RetrievedChunk:
     chunk_id: str
     document_id: str
     content: str
-    company_id: str
+    tenant_id: str
     source: str
     page: int | None
     distance: float
