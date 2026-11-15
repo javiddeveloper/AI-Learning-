@@ -11,7 +11,7 @@
 **Phase 4 — Embeddings, Vector Search & RAG**
 
 ## Current Topic
-**Session 32 — RAG Ingestion Pipeline**
+**Session 33 — RAG Retrieval Pipeline**
 
 ## Phase 1 Progress
 | Topic | Status | Confidence | Notes |
@@ -244,3 +244,24 @@ Implemented:
 **Remaining:** Run tests, Ruff and Pyright; review chunk boundaries, PDF extraction and failure behavior; then explain chunk size/overlap and ingestion idempotency in your own words.
 
 **Next:** Session 33 — Retrieval & Semantic Search.
+
+
+### Session 33 — RAG Retrieval Pipeline
+**Status:** IN_PROGRESS — implementation and tests authored; runtime verification pending
+
+**Implementation:** `docs/learning/exercises/session-33-rag-retrieval/`
+
+Implemented:
+- Conservative query preprocessing and empty-query validation
+- EmbeddingProvider and VectorStore Protocol boundaries
+- Retrieval orchestration with Top-K validation
+- Async PostgreSQL + pgvector cosine-distance adapter
+- Tenant filtering inside the SQL query
+- Bounded context assembly with source/page citations
+- Unit tests for query normalization, empty results, Top-K, tenant propagation, context budget, duplicate chunks and citation preservation
+
+**Verification:** Tests have been authored but have not been executed in a local runtime. Do not report them as passing until `uv sync --extra dev`, `uv run pytest`, `uv run ruff check .`, and `uv run pyright` are run.
+
+**Remaining:** Verify the assumed database column names and metadata schema against Session 32; run quality checks; review the SQL adapter and test failures; explain dense retrieval, tenant filtering and context selection.
+
+**Scope note:** Hybrid search, query expansion, reranking and model-based compression remain follow-up topics; this implementation establishes a dense-retrieval baseline.
