@@ -11,17 +11,18 @@ from retrieval.models import RetrievedChunk
 # applied inside the database query, before any chunk can reach the application.
 SEARCH_SQL = text("""
     SELECT
-        chunk_id,
-        document_id,
-        content,
-        metadata,
-        metadata->>'company_id' AS company_id,
-        metadata->>'source' AS source,
-        NULLIF(metadata->>'page', '')::integer AS page,
-        embedding <=> CAST(:query_vector AS vector) AS distance
-    FROM document_chunks
-    WHERE metadata->>'company_id' = :company_id
-    ORDER BY embedding <=> CAST(:query_vector AS vector) ASC
+        c.id AS chunk_id,
+        c.document_id,
+        c.content,
+        c.metadata,
+        c.tenant_id,
+        d.source_name AS source,
+        c.page_number AS page,
+        c.embedding <=> CAST(:query_vector AS vector) AS distance
+    FROM document_chunks AS c
+    INNER JOIN documents AS d ON d.id = c.document_id
+    WHERE c.tenant_id = CAST(:tenant_id AS uuid)
+    ORDER BY c.embedding <=> CAST(:query_vector AS vector) ASC
     LIMIT :top_k
 """)
 
@@ -29,8 +30,8 @@ SEARCH_SQL = text("""
 class PgVectorStore:
     """PostgreSQL + pgvector adapter.
 
-    Assumes document_chunks has chunk_id, document_id, content, metadata (JSONB),
-    and embedding (vector) columns. The embedding dimension must match ingestion.
+    Uses the Session 32 schema: document_chunks.id/document_id/tenant_id/page_number/
+    content/embedding/metadata and documents.id/source_name. The embedding dimension must match ingestion.
     """
 
     def __init__(self, session: AsyncSession) -> None:
@@ -40,7 +41,7 @@ class PgVectorStore:
         self,
         *,
         query_vector: Sequence[float],
-        company_id: str,
+        tenant_id: str,
         top_k: int,
     ) -> list[RetrievedChunk]:
         vector_literal = "[" + ",".join(str(float(value)) for value in query_vector) + "]"
@@ -48,7 +49,7 @@ class PgVectorStore:
             SEARCH_SQL,
             {
                 "query_vector": vector_literal,
-                "company_id": company_id,
+                "tenant_id": tenant_id,
                 "top_k": top_k,
             },
         )
@@ -63,7 +64,7 @@ class PgVectorStore:
                     chunk_id=str(row["chunk_id"]),
                     document_id=str(row["document_id"]),
                     content=str(row["content"]),
-                    company_id=str(row["company_id"]),
+                    company_id=str(row["tenant_id"]),
                     source=str(source),
                     page=row["page"],
                     distance=float(row["distance"]),
