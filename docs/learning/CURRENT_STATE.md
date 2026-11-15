@@ -4,13 +4,13 @@
 Phase 4 — Embeddings, Vector Search & RAG
 
 ## Current Topic
-Session 32 — RAG Ingestion Pipeline
+Session 33 — RAG Retrieval Pipeline
 
 ## Current Status
-PRACTICING — exercise and tests authored; local execution and learner review remain
+IN_PROGRESS — retrieval exercise and tests authored; local execution and learner review remain
 
 ## Current Goal
-Build a reliable document-ingestion pipeline that prepares source documents for semantic retrieval.
+Build a tenant-safe retrieval pipeline that finds relevant chunks and assembles a bounded, attributable context for an LLM.
 
 ## Session 27 — Historical Work
 
@@ -188,3 +188,36 @@ Next actions:
 ## Next Recommended Step
 
 Session 33 — Retrieval & Semantic Search.
+
+
+## Session 33 — RAG Retrieval Pipeline
+
+Status: IN_PROGRESS — implementation and tests authored; local runtime verification pending.
+
+Implementation: `docs/learning/exercises/session-33-rag-retrieval/`
+
+Implemented:
+- Query preprocessing with whitespace normalization and empty-query rejection
+- EmbeddingProvider and VectorStore Protocol boundaries
+- RetrievalService orchestration and Top-K validation
+- Async SQLAlchemy adapter for PostgreSQL + pgvector cosine-distance search
+- Tenant filter applied in SQL before results are returned
+- Context builder with a deterministic character budget
+- Source/page citations generated from retrieved metadata
+- Tests for preprocessing, no-result behavior, Top-K, tenant propagation, context budget, duplicate chunks and citation preservation
+
+Important limitations:
+- The SQL adapter assumes a `document_chunks` table with `chunk_id`, `document_id`, `content`, `metadata JSONB` and `embedding vector(N)`; this must be reconciled with the actual Session 32 schema before database integration.
+- The context budget is character-based, not tokenizer-based.
+- No real embedding provider or live PostgreSQL instance has been connected.
+- Tests, Ruff and Pyright have not yet been executed; do not report them as passing.
+
+Next actions:
+1. Compare the SQL adapter assumptions with the Session 32 schema.
+2. Run `uv sync --extra dev`, `uv run pytest`, `uv run ruff check .`, and `uv run pyright`.
+3. Fix any runtime or static-analysis issues.
+4. Explain dense retrieval, cosine distance, Top-K, tenant filtering and citation preservation.
+
+## Next Recommended Step
+
+Verify the Session 33 exercise locally, then add hybrid search only after the dense baseline is understood and tested.
