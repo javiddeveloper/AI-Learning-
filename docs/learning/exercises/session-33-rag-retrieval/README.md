@@ -28,7 +28,7 @@ It joins `documents` to recover the source filename and filters by `document_chu
 
 The vector dimension and embedding model must be identical/compatible with the ingestion pipeline. The pgvector extension must be enabled.
 
-The SQL uses `<=>` (cosine distance), orders ascending (smaller distance is closer), applies the tenant predicate in the database, and parameterizes all values. The authenticated application layer must derive `company_id`; never trust a tenant ID supplied by the model or arbitrary user query. For stronger defense in depth, add PostgreSQL Row-Level Security (RLS).
+The SQL uses `<=>` (cosine distance), orders ascending (smaller distance is closer), applies the tenant predicate in the database, and parameterizes all values. The authenticated application layer must derive `tenant_id`; never trust a tenant ID supplied by the model or arbitrary user query. For stronger defense in depth, add PostgreSQL Row-Level Security (RLS).
 
 ## Context budget
 
