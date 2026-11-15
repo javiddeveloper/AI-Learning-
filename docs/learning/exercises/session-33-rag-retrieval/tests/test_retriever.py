@@ -81,4 +81,4 @@ async def test_top_k_limits_returned_results() -> None:
 async def test_empty_tenant_id_is_rejected() -> None:
     service = RetrievalService(FakeEmbedder(), FakeVectorStore([]))
     with pytest.raises(ValueError, match="tenant_id"):
-        await service.search($tenant_id=" ")
+        await service.search(query="query", tenant_id=" ")
