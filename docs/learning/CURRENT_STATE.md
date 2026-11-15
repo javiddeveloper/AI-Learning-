@@ -213,10 +213,9 @@ Important limitations:
 - Tests, Ruff and Pyright have not yet been executed; do not report them as passing.
 
 Next actions:
-1. Compare the SQL adapter assumptions with the Session 32 schema.
-2. Run `uv sync --extra dev`, `uv run pytest`, `uv run ruff check .`, and `uv run pyright`.
-3. Fix any runtime or static-analysis issues.
-4. Explain dense retrieval, cosine distance, Top-K, tenant filtering and citation preservation.
+1. Run `uv sync --extra dev`, `uv run pytest`, `uv run ruff check .`, and `uv run pyright`.
+2. Fix any runtime or static-analysis issues.
+3. Explain dense retrieval, cosine distance, Top-K, tenant filtering and citation preservation.
 
 ## Next Recommended Step
 
