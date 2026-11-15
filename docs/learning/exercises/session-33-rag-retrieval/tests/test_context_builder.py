@@ -16,7 +16,7 @@ def chunk(
         chunk_id=chunk_id,
         document_id="doc-1",
         content=content,
-        company_id="company-a",
+        tenant_id="tenant-a",
         source=source,
         page=page,
         distance=distance,
