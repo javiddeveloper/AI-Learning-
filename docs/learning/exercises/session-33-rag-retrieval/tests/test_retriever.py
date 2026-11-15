@@ -39,7 +39,7 @@ def make_chunk(chunk_id: str, distance: float) -> RetrievedChunk:
         source="policy.pdf",
         page=3,
         distance=distance,
-        metadata={"tenant_id": "company-a"},
+        metadata={"tenant_id": "tenant-a"},
     )
 
 
@@ -56,7 +56,7 @@ async def test_query_is_preprocessed_and_top_k_is_forwarded() -> None:
     )
 
     assert embedder.received_query == "how to cancel?"
-    assert store.received_tenant_id == "company-a"
+    assert store.received_tenant_id == "tenant-a"
     assert store.received_top_k == 2
     assert [item.chunk_id for item in results] == ["c1", "c2"]
 
@@ -81,4 +81,4 @@ async def test_top_k_limits_returned_results() -> None:
 async def test_empty_tenant_id_is_rejected() -> None:
     service = RetrievalService(FakeEmbedder(), FakeVectorStore([]))
     with pytest.raises(ValueError, match="tenant_id"):
-        await service.search(query="query", $tenant_id=" ")
+        await service.search($tenant_id=" ")
