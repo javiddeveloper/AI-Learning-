@@ -36,7 +36,7 @@ class RetrievalService:
         tenant_id: str,
         top_k: int = 5,
     ) -> list[RetrievedChunk]:
-        if not company_id.strip():
+        if not tenant_id.strip():
             raise ValueError("tenant_id must not be empty")
         if top_k < 1:
             raise ValueError("top_k must be greater than zero")
