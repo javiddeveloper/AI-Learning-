@@ -1,0 +1,28 @@
+[project]
+name = "session-33-rag-retrieval"
+version = "0.1.0"
+description = "A testable dense-retrieval pipeline for RAG using PostgreSQL and pgvector."
+requires-python = ">=3.11"
+dependencies = [
+    "sqlalchemy>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.6",
+    "pyright>=1.1",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pyright]
+typeCheckingMode = "strict"
+pythonVersion = "3.11"
