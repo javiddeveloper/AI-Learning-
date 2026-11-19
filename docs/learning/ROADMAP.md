@@ -2,9 +2,9 @@
 
 ## Goal
 
-Become a production-oriented AI Engineer by building on existing software engineering skills.
+Become a Senior AI Engineer who can independently design, build, train or fine-tune, evaluate, deploy, optimize, and maintain production AI systems.
 
-The goal is not to become a generic Python developer, ML researcher, or framework specialist. The goal is to design, build, deploy, evaluate, and maintain reliable AI-powered production systems.
+The goal is to combine strong software engineering with practical Machine Learning, NLP, Deep Learning, LLM Engineering, model serving, and MLOps. This is an engineering-oriented path: learn enough model internals to make sound decisions and deliver working systems, without turning the curriculum into an academic ML research track.
 
 ## Personalized Learning Strategy
 
@@ -45,13 +45,15 @@ If the learner explicitly says a concept is not understood, stop progressing thr
 3. Structured Outputs & Tool Calling
 4. Embeddings, Vector Search & RAG
 5. AI Workflows & Agents
-6. AI Security
-7. Production AI Engineering
-8. Evaluation, Observability & LLMOps
-9. AI System Design
-10. ML / DL / Transformer Fundamentals
-11. Fine-Tuning & Local LLMs
-12. Capstone Production AI System
+6. Applied Machine Learning & NLP
+7. Deep Learning & Transformer Engineering
+8. Model Fine-Tuning, Serving & Optimization
+9. Speech & Voice AI
+10. AI Security
+11. Production AI Engineering
+12. Evaluation, Observability & MLOps
+13. AI System Design
+14. Capstone Production AI System
 
 ---
 
@@ -479,36 +481,144 @@ Understand why LLMs and embeddings behave as they do and make informed engineeri
 
 ---
 
-# Phase 11 — Fine-Tuning & Local LLMs
+# Phase 11 — Applied Machine Learning & NLP
 
 ## Objective
 
-Understand when customization or local inference is justified.
+Build practical ML and NLP systems for real business problems such as classification, semantic similarity, content moderation, and fraud detection.
 
 ## Topics
 
-- Fine-tuning concepts
-- Dataset preparation
-- Supervised fine-tuning
-- LoRA
-- QLoRA
-- Evaluation
-- Quantization
-- Local inference
-- Ollama
-- vLLM
-- GPU fundamentals
-- Model serving
-- Throughput vs latency
-- Cost comparison: API vs self-hosted
+- NumPy and Pandas essentials for ML data workflows
+- Dataset inspection, cleaning, preprocessing and splitting
+- Scikit-learn estimators, pipelines and preprocessing
+- Supervised learning: classification and regression
+- Baseline models and feature engineering
+- Text preprocessing and Persian text normalization
+- Bag of Words and TF-IDF
+- Text classification and semantic similarity
+- Precision, Recall, F1, confusion matrix, ROC-AUC and PR-AUC
+- Class imbalance, sampling, class weights and threshold tuning
+- Data leakage, overfitting and cross-validation
+- Fraud detection and anomaly detection fundamentals
+- Experiment tracking and reproducible evaluation
+- Error analysis and model selection
 
 ## Outcome
 
-Understand the trade-offs between prompting, RAG, fine-tuning, and self-hosted models.
+Build and evaluate practical ML/NLP baselines, explain metric trade-offs, and identify when a classical ML model is more appropriate than an LLM.
 
 ---
 
-# Phase 12 — Capstone Production AI System
+# Phase 12 — Deep Learning & Transformer Engineering
+
+## Objective
+
+Gain hands-on ability to understand, fine-tune, evaluate and operate neural and Transformer-based models.
+
+## Topics
+
+- PyTorch tensors, devices and tensor operations
+- Autograd, loss functions and optimizers
+- Dataset and DataLoader
+- Training and validation loops
+- Neural network fundamentals
+- Hugging Face ecosystem and Transformers
+- Tokenizers and pretrained model lifecycle
+- BERT architecture and encoder models
+- Fine-tuning BERT for text classification
+- ParsBERT and multilingual models
+- Training stability, overfitting and regularization
+- GPU/CUDA fundamentals and memory constraints
+- Batch size, throughput and inference latency
+- Model checkpointing and reproducibility
+- Model evaluation and error analysis
+
+## Outcome
+
+Fine-tune a pretrained Transformer for a real classification task and compare it against a Scikit-learn baseline.
+
+---
+
+# Phase 13 — Model Serving & Inference Optimization
+
+## Objective
+
+Deploy trained models as reliable, measurable and efficient production services.
+
+## Topics
+
+- Model serving patterns and lifecycle
+- FastAPI inference endpoints
+- CPU vs GPU inference
+- ONNX export and ONNX Runtime
+- Quantization concepts and practical trade-offs
+- Dynamic batching and concurrency
+- Throughput, latency and memory profiling
+- vLLM architecture and continuous batching
+- NVIDIA Triton concepts and model serving
+- Model versioning and rollout strategies
+- Load testing and performance benchmarks
+- API-level timeouts, backpressure and resource limits
+
+## Outcome
+
+Serve a trained model behind an API, benchmark it under load, and justify optimization decisions using measured latency, throughput, and resource usage.
+
+---
+
+# Phase 14 — Speech & Voice AI
+
+## Objective
+
+Build practical speech-processing capabilities and understand their production constraints.
+
+## Topics
+
+- Audio representation and sampling basics
+- Speech-to-Text (STT) pipeline
+- Whisper architecture and inference
+- Transcription quality evaluation
+- Persian speech recognition considerations
+- Text-to-Speech (TTS) concepts and integration
+- Streaming audio and chunked transcription
+- Voice AI pipeline architecture
+- Latency, accuracy, privacy and cost trade-offs
+
+## Outcome
+
+Build a transcription service and expose it through a production-oriented API, with measurable quality and latency.
+
+---
+
+# Phase 15 — Fine-Tuning & Local LLMs
+
+## Objective
+
+Understand when prompting, RAG, fine-tuning or self-hosting is the right solution.
+
+## Topics
+
+- Fine-tuning strategy selection
+- Dataset preparation and quality
+- Supervised fine-tuning (SFT)
+- LoRA and QLoRA
+- LLM evaluation before and after fine-tuning
+- Quantization
+- Ollama
+- vLLM for LLM serving
+- GPU memory and inference fundamentals
+- Throughput vs latency
+- API vs self-hosted model cost comparison
+- Model deployment and operational trade-offs
+
+## Outcome
+
+Make evidence-based decisions about adapting and hosting models, and complete a controlled fine-tuning or local-inference experiment.
+
+---
+
+# Phase 16 — Capstone Production AI System
 
 Build one complete production-oriented AI system combining the skills from the roadmap.
 
