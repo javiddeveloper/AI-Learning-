@@ -736,9 +736,145 @@ Practice:
 
 ---
 
-## Phase 11 — Fine-Tuning & Local LLMs
+## Phase 15 — Fine-Tuning & Local LLMs
 
-### Session 60 — Fine-Tuning
+### Session 60 — Applied ML Foundations
+
+- NumPy and Pandas essentials for ML workflows
+- Dataset inspection, cleaning, splitting and leakage prevention
+- Scikit-learn estimators, pipelines and preprocessing
+- Classification and regression baselines
+- Feature engineering
+- Cross-validation and reproducibility
+
+Exercise: build a reproducible tabular classification baseline and report its metrics.
+
+### Session 61 — ML Evaluation & Fraud Detection
+
+- Confusion matrix
+- Precision, Recall, F1
+- ROC-AUC and PR-AUC
+- Imbalanced datasets
+- Class weights, sampling and threshold tuning
+- False-positive vs false-negative costs
+- Fraud detection and anomaly detection baselines
+- Error analysis
+
+Exercise: train and evaluate an imbalanced fraud-detection model; justify the selected metric and threshold.
+
+### Session 62 — NLP & Text Classification
+
+- NLP preprocessing fundamentals
+- Tokenization
+- Bag of Words and TF-IDF
+- Text classification with Scikit-learn
+- Semantic similarity baselines
+- Content moderation use cases
+- Persian text normalization and dataset concerns
+
+Exercise: implement a text-classification baseline and compare preprocessing choices.
+
+### Session 63 — PyTorch Fundamentals
+
+- Tensors, shapes, dtypes and devices
+- CPU vs GPU
+- Autograd and computational graphs
+- Loss functions and optimizers
+- Dataset and DataLoader
+- Training and validation loops
+
+Exercise: train a small neural classifier and explain its training loop.
+
+### Session 64 — Hugging Face & Transformer Models
+
+- Hugging Face Hub and Transformers
+- Pretrained model and tokenizer lifecycle
+- BERT encoder architecture
+- Tokenization, attention masks and padding
+- Model inputs and outputs
+- Inference with pretrained models
+- Model cards and dataset/model licenses
+
+Exercise: run a pretrained BERT-family model and inspect tokenization and outputs.
+
+### Session 65 — Fine-Tuning BERT & Persian NLP
+
+- Fine-tuning for text classification
+- Training/validation/test separation
+- Learning rate, epochs and batch size
+- Overfitting and regularization
+- ParsBERT
+- Multilingual models
+- Persian evaluation datasets and error analysis
+
+Exercise: fine-tune a BERT-family model for a classification task and compare it with Session 62's baseline.
+
+### Session 66 — Model Evaluation & Experiment Practice
+
+- Baseline comparison
+- Per-class metrics
+- Threshold selection
+- Error analysis
+- Reproducibility and random seeds
+- Experiment records and model checkpoints
+- Dataset and model versioning
+
+Exercise: produce a short model evaluation report with a justified model-selection decision.
+
+### Session 67 — Model Serving with FastAPI
+
+- Loading model artifacts safely
+- Application lifespan and model lifecycle
+- Inference request/response schemas
+- CPU/GPU device selection
+- Batch inference
+- Input validation and resource limits
+- Health and readiness endpoints
+
+Exercise: serve the fine-tuned classifier through FastAPI and test it.
+
+### Session 68 — Inference Optimization
+
+- Latency vs throughput
+- Warm-up and profiling
+- Batch size and dynamic batching
+- ONNX export
+- ONNX Runtime
+- Quantization trade-offs
+- GPU memory and concurrency
+- Load testing and benchmarking
+
+Exercise: benchmark a baseline model and one optimized inference path; report measurements.
+
+### Session 69 — Production Model Serving
+
+- vLLM architecture and continuous batching
+- NVIDIA Triton concepts
+- Model versioning and rollout
+- Backpressure and overload behavior
+- GPU utilization and capacity planning
+- Serving observability
+
+Exercise: compare serving approaches and document when each is justified. Triton can be a conceptual lab if GPU infrastructure is unavailable.
+
+### Session 70 — Speech & Voice AI
+
+- Audio representation and sampling
+- Speech-to-Text pipeline
+- Whisper inference
+- Transcription evaluation
+- Persian speech recognition considerations
+- Text-to-Speech concepts
+- Streaming/chunked audio
+- Latency, privacy and cost
+
+Exercise: expose a transcription workflow through an API and evaluate sample outputs.
+
+---
+
+### Session 71 — Fine-Tuning Strategies
+
+
 
 - SFT
 - Dataset preparation
@@ -746,7 +882,7 @@ Practice:
 - QLoRA
 - Evaluation
 
-### Session 61 — Local Inference
+### Session 72 — Local Inference
 
 - Quantization
 - Ollama
@@ -754,15 +890,15 @@ Practice:
 - GPU fundamentals
 - Serving trade-offs
 
-### Session 62 — API vs Self-Hosted Models
+### Session 73 — API vs Self-Hosted Models
 
 Compare cost, latency, privacy, reliability, and operational complexity.
 
 ---
 
-## Phase 12 — Capstone
+## Phase 16 — Capstone
 
-### Session 63+ — Production AI System
+### Session 74+ — Production AI System
 
 Build one complete production-oriented AI system combining:
 
