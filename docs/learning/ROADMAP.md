@@ -45,15 +45,17 @@ If the learner explicitly says a concept is not understood, stop progressing thr
 3. Structured Outputs & Tool Calling
 4. Embeddings, Vector Search & RAG
 5. AI Workflows & Agents
-6. Applied Machine Learning & NLP
-7. Deep Learning & Transformer Engineering
-8. Model Fine-Tuning, Serving & Optimization
-9. Speech & Voice AI
-10. AI Security
-11. Production AI Engineering
-12. Evaluation, Observability & MLOps
-13. AI System Design
-14. Capstone Production AI System
+6. AI Security
+7. Production AI Engineering
+8. Evaluation, Observability & LLMOps
+9. AI System Design
+10. ML / DL / Transformer Fundamentals
+11. Applied Machine Learning & NLP
+12. Deep Learning & Transformer Engineering
+13. Model Serving & Inference Optimization
+14. Speech & Voice AI
+15. Fine-Tuning & Local LLMs
+16. Capstone Production AI System
 
 ---
 
