@@ -1,5 +1,8 @@
 # Current Learning State
 
+## Career Target
+Senior AI Engineer — prioritize practical Machine Learning, NLP, Deep Learning, Transformer fine-tuning, model serving, inference optimization, and production MLOps in addition to the existing LLM/RAG track. This strategic change does not reset current learning progress.
+
 ## Current Phase
 Phase 4 — Embeddings, Vector Search & RAG
 
