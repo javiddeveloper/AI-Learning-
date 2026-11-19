@@ -738,6 +738,8 @@ Practice:
 
 ## Phase 15 — Fine-Tuning & Local LLMs
 
+## Phase 11 — Applied Machine Learning & NLP
+
 ### Session 60 — Applied ML Foundations
 
 - NumPy and Pandas essentials for ML workflows
@@ -773,6 +775,8 @@ Exercise: train and evaluate an imbalanced fraud-detection model; justify the se
 - Persian text normalization and dataset concerns
 
 Exercise: implement a text-classification baseline and compare preprocessing choices.
+
+## Phase 12 — Deep Learning & Transformer Engineering
 
 ### Session 63 — PyTorch Fundamentals
 
@@ -821,6 +825,8 @@ Exercise: fine-tune a BERT-family model for a classification task and compare it
 
 Exercise: produce a short model evaluation report with a justified model-selection decision.
 
+## Phase 13 — Model Serving & Inference Optimization
+
 ### Session 67 — Model Serving with FastAPI
 
 - Loading model artifacts safely
@@ -856,6 +862,8 @@ Exercise: benchmark a baseline model and one optimized inference path; report me
 - Serving observability
 
 Exercise: compare serving approaches and document when each is justified. Triton can be a conceptual lab if GPU infrastructure is unavailable.
+
+## Phase 14 — Speech & Voice AI
 
 ### Session 70 — Speech & Voice AI
 
