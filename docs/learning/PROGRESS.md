@@ -1,5 +1,8 @@
 # Learning Progress
 
+## Career Target
+**Primary target: Senior AI Engineer.** The roadmap is being expanded beyond LLM/RAG application development to include applied ML, NLP, PyTorch, Hugging Face, Transformer fine-tuning, model serving, inference optimization, and speech AI. Existing progress and session statuses remain unchanged.
+
 ## Status Legend
 - NOT_STARTED
 - IN_PROGRESS
